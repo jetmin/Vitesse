@@ -29,7 +29,7 @@ Nous notons $(X_t)_{t\geqslant 0}$ le processus de percolation dynamique sur le 
 $$\tau_{i+1} \,=\, \inf \,\big\{ \, t>\tau_i: {X_t}\mid_{ \Lambda(\ell,h)} \neq {X_{\tau_i}}\mid_{ \Lambda(\ell,h)} \big \}.
 $$
 Pour tout $i\geqslant 1$, il existe une unique arête $e_i$ incluse dans $\Lambda(\ell,h)$ telle que $X_{\tau_i}(e_i) \neq X_{\tau_{i-1}}(e_i)$. Nous appelons la suite $(e_i)_{i\geqslant 1}$ la suite des arêtes modifiées.
-Nous allons coupler $(Y_t)_{t\geqslant 0}$ à valeurs dans $\{0,1\}^{\mathbb{E}^d}$. D'abord nous posons $Y_0=X_0$ et $X_0$ une configuration qui vérifie $\{T\nlongleftrightarrow B\}$. Ensuite, soit $i\geqslant 0$, pour tout $s\in [\tau_i, \tau_{i+1}[$, nous posons $Y_s = Y_{\tau_i}$, et $Y_{\tau_{i+1}}(e) =Y_{\tau_i}(e)$ si $e\neq e_{i+1}$, et nous déterminons $Y_{\tau_{i+1}}(e_{i+1})$ en fonction de $X_{\tau_{i+1}}$ via la formule suivante:
+Nous notons $\{T\longleftrightarrow B\}$ l'événement il existe un chemin ouvert entre le haut et le bas de la boîte $\Lambda$ et nous allons coupler $(Y_t)_{t\geqslant 0}$ à valeurs dans $\{0,1\}^{\mathbb{E}^d}$. D'abord nous posons $Y_0=X_0$ et $X_0$ une configuration qui vérifie $\{T\nlongleftrightarrow B\}$. Ensuite, soit $i\geqslant 0$, pour tout $s\in [\tau_i, \tau_{i+1}[$, nous posons $Y_s = Y_{\tau_i}$, et $Y_{\tau_{i+1}}(e) =Y_{\tau_i}(e)$ si $e\neq e_{i+1}$, et nous déterminons $Y_{\tau_{i+1}}(e_{i+1})$ en fonction de $X_{\tau_{i+1}}$ via la formule suivante:
 $$Y_{\tau_{i+1}}(e_{i+1})=\left\lbrace \begin{array}{cl}
 0 &\text{si }X_{\tau_{i+1}}(e_{i+1}) = 0\\
 1 & \text{si }X_{\tau_{i+1}}(e_{i+1}) = 1, T \nlongleftrightarrow B \text{ dans }(Y_{\tau_i})^{e_{i+1}}\\
