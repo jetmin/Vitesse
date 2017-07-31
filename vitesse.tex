@@ -39,7 +39,7 @@ Le processus $Y$ est le processus de percolation dynamique conditionné à reste
 Soit $(X_t,Y_t)_{t\geqslant 0}$ un couplage défini précédemment, nous définissons l'interface dans $\Lambda({\ell,h})$ au temps $t$, que nous notons $\mathcal{I}_t({\ell,h})$, comme l'ensemble aléatoire des arêtes qui sont ouvertes dans $X_t$ et fermées dans $Y_t$: $$ \mathcal{I}_t({\ell,h}) \,=\, \big\{ \,e\in \mathbb{E}^2: X_t(e) = 1, Y_t(e) = 0 \, \big\}.
 $$
 \end{defi}
-Nous notons $\mathcal{P}_t$ l'ensemble des arêtes pivot pour l'événement $\{T\longleftrightarrow B\}$ dans $Y$.
+Nous notons $\mathcal{P}_t$ l'ensemble des arêtes pivot pour l'événement $\{T\longleftrightarrow B\}$ dans $Y$ à l'instant $t$.
 \section{La construction d'un chemin espace-temps}
 Nous allons énoncer une première proposition qui permet de construire un chemin espace temps dont nous avons besoin pour l'estimée.
 
@@ -54,8 +54,19 @@ Nous montrons que $\theta(t)< t$. En effet, si à l'instant $t$, il y a une arê
 Si $\theta(t)\leqslant s$, le chemin $(e,t),(e_1,t),(e_1,s)$ est un chemin espace-temps voulu. Sinon, $\theta(t)> s$, nous considérons l'arête-temps $(e_1,\theta(t))\in \mathcal{P}_{\theta(t)}$ qui est reliée à $(e,t)$ par le chemin $(e,t),(e_1,t),(e_1,\theta(t))$. Nous devons maintenant montrer le résultat voulu avec $(e_1,\theta(t))$ à la place de $(e,t)$. Nous répétons le procédure précédent et nous construisons une suite décroissante d'instants $(t,\theta(t),\theta(\theta(t)),\dots)$ et une suite d'arête $(e,e_1,e_2,\dots)$. Or tout instant de la suite est supérieur à $s$, la suite est forcément finie. Donc il existe un $k\in\mathbb{N}$ tel que $\theta^k(t)\leqslant s$. Or pour tout $0\leqslant i < k$, l'arête $(e_i,\theta^i(t))$ est reliée à $(e_{i+1},\theta^{i+1}(t))$ par un chemin espace-temps fermé. Nous obtenons un chemin espace-temps fermé qui relie $(e,t)$ à $(e_k,\theta^k(t))$. Or $\theta^k(t)\leqslant s$ et $e_k$ est pivot entre $\theta^k(t)$ et $s$. Nous obtenons un chemin voulu.
 \end{proof}
 
-\section{La comparaison entre deux processus: une inégalité de type BK}
+\section{La comparaison entre deux processus}
 Nous étudions maintenant le chemin espace-temps dans les deux processus, en particulier, nous comparons les arêtes fermées du chemin et nous allons obtenir une inégalité de type BK à l'aide du couplage.
 
-Soit $(e,t)$ une arête-temps fermée dans le processus $Y$. Dans le processus $X$, vu qu'il n'y a pas de conditionnement, elle peut être ouverte ou fermée à l'instant $t$. Si elle est ouverte, par la définition de l'interface, $e\in \mathcal{P}_t$. Dans le cas contraire, elle est fermée dans le processus de percolation standard, nous avons $P(X_t(e) = 0) = 1-p$. Si $e$ se ferme dans $Y$ à un instant, elle se ferme aussi dans $X$. Par contre, si $e$ est pivot dans $Y$, lors d'une arrivée du processus d'ouverture, elle s'ouvre dans $X$ mais pas dans $Y$. Maintenant, regardons le chemin espace-temps obtenu dans la proposition \ref{stc}. Or il existe des arêtes pivot dans le chemin, ce chemin n'est pas forcément fermé dans le processus $X$. Par contre, nous pouvons considérer le dernier instant de fermeture avant le passage sur une arête. Plus précisément, notons $(e_i,t_i)_{1\leqslant i \leqslant n}$ le chemin espace-temps. Nous considérons $\tilde{t_i}$ le dernier instant d'arrivée du processus de fermeture de l'arête $e_i$ avant $t_i$.\emph{\color{blue}(notation?)} Nous allons distinguer trois cas. Dans le premier cas $\tilde{t_i}\geqslant s$, l'arête $e_i$ est fermée à $t_i$ car il y a une fermeture après l'instant $s$. Dans le deuxième cas $\tilde{t_i}< s$ et $e_i$ est fermé à l'instant $s$ dans les deux processus. Dans le dernier cas, $\tilde{t_i}< s$ et à l'instant $s$, $e_i$ est fermée dans $Y$ mais ouverte dans $X$, nous remarquons que $e_i \in \mathcal{I_s}$.
+Soit $(e,t)$ une arête-temps fermée dans le processus $Y$. Dans le processus $X$, vu qu'il n'y a pas de conditionnement, elle peut être ouverte ou fermée à l'instant $t$. Si elle est ouverte, par la définition de l'interface, $e\in \mathcal{P}_t$. Dans le cas contraire, elle est fermée dans le processus de percolation standard, nous avons $P(X_t(e) = 0) = 1-p$. Si $e$ se ferme dans $Y$ à un instant, elle se ferme aussi dans $X$. Par contre, si $e$ est pivot dans $Y$, lors d'une arrivée du processus d'ouverture, elle s'ouvre dans $X$ mais pas dans $Y$. Maintenant, regardons le chemin espace-temps obtenu dans la proposition \ref{stc}. Or il existe des arêtes pivot dans le chemin, ce chemin n'est pas forcément fermé dans le processus $X$. Par contre, nous pouvons considérer le dernier instant de fermeture avant le passage sur une arête. Plus précisément, notons $(e_i,t_i)_{1\leqslant i \leqslant n}$ le chemin espace-temps. Nous considérons $\tilde{t_i}$ le dernier instant d'arrivée du processus de fermeture de l'arête $e_i$ avant $t_i$.\emph{\color{blue}(notation?)} Nous allons distinguer trois cas. Dans le premier cas $\tilde{t_i}\geqslant s$, l'arête $e_i$ est fermée à $t_i$ car il y a une fermeture après l'instant $s$. Dans le deuxième cas $\tilde{t_i}< s$ et $e_i$ est fermé à l'instant $s$ dans les deux processus. Dans le dernier cas, $\tilde{t_i}< s$ et à l'instant $s$, $e_i$ est fermée dans $Y$ mais ouverte dans $X$, nous remarquons que $e_i \in \mathcal{I}_s$. Nous en déduisons la proposition suivante:
+
+\begin{propo} Soient $s<t$ deux instants et $\gamma$ un chemin espace-temps fermé entre $s$ et $t$ dans le processus conditionné $Y$, une arête $e$ de $\gamma$ vérifie une des trois propriétés suivantes:
+\begin{itemize}[leftmargin = *]
+\item $e\in \mathcal{I}_s$;
+\item $e$ est fermée à l'instant $s$ dans le processus de percolation dynamique $X$;
+\item Il existe un instant $r\in ]s,t]$ où il y a un instant d'arrivée du processus de fermeture.
+\end{itemize}
+\end{propo}
+
+\section{Une inégalité de type BK}
+
 \end{document}
