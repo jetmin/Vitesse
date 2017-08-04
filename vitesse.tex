@@ -23,7 +23,7 @@
 
 \setlength{\parskip}{0pt}
 \begin{document}
-\section{Le modèle}
+\section{Le modèle}\emph{\color{blue}(à refaire en temps continu)}
 Nous notons $(X_t)_{t\geqslant 0}$ le processus de percolation dynamique sur le réseau $(\mathbb{Z}^d,\mathbb{E}^d)$ et nous considérons la restriction de $X$ dans une boîte finie $\Lambda$. Nous définissons la suite $(\tau_i)_{i\geqslant 0}$ des instants de changement dans une boîte finie $\Lambda(\ell,h)$, en posant $\tau_0 = 0$ et pour tout $i\geqslant 0$,
 $$\tau_{i+1} \,=\, \inf \,\big\{ \, t>\tau_i: {X_t}\mid_{ \Lambda(\ell,h)} \neq {X_{\tau_i}}\mid_{ \Lambda(\ell,h)} \big \}.
 $$
@@ -55,18 +55,49 @@ Si $\theta(t)\leqslant s$, le chemin $(e,t),(e_1,t),(e_1,s)$ est un chemin espac
 \end{proof}
 
 \section{La comparaison entre deux processus}
-Nous étudions maintenant le chemin espace-temps dans les deux processus, en particulier, nous comparons les arêtes fermées du chemin et nous allons obtenir une inégalité de type BK à l'aide du couplage.
+Nous étudions maintenant le chemin espace-temps dans les deux processus, en particulier, nous comparons les arêtes fermées du chemin.
 
 Soit $(e,t)$ une arête-temps fermée dans le processus $Y$. Dans le processus $X$, vu qu'il n'y a pas de conditionnement, elle peut être ouverte ou fermée à l'instant $t$. Si elle est ouverte, par la définition de l'interface, $e\in \mathcal{P}_t$. Dans le cas contraire, elle est fermée dans le processus de percolation standard, nous avons $P(X_t(e) = 0) = 1-p$. Si $e$ se ferme dans $Y$ à un instant, elle se ferme aussi dans $X$. Par contre, si $e$ est pivot dans $Y$, lors d'une arrivée du processus d'ouverture, elle s'ouvre dans $X$ mais pas dans $Y$. Maintenant, regardons le chemin espace-temps obtenu dans la proposition \ref{stc}. Or il existe des arêtes pivot dans le chemin, ce chemin n'est pas forcément fermé dans le processus $X$. Par contre, nous pouvons considérer le dernier instant de fermeture avant le passage sur une arête. Plus précisément, notons $(e_i,t_i)_{1\leqslant i \leqslant n}$ le chemin espace-temps. Nous considérons $\tilde{t_i}$ le dernier instant d'arrivée du processus de fermeture de l'arête $e_i$ avant $t_i$.\emph{\color{blue}(notation?)} Nous allons distinguer trois cas. Dans le premier cas $\tilde{t_i}\geqslant s$, l'arête $e_i$ est fermée à $t_i$ car il y a une fermeture après l'instant $s$. Dans le deuxième cas $\tilde{t_i}< s$ et $e_i$ est fermé à l'instant $s$ dans les deux processus. Dans le dernier cas, $\tilde{t_i}< s$ et à l'instant $s$, $e_i$ est fermée dans $Y$ mais ouverte dans $X$, nous remarquons que $e_i \in \mathcal{I}_s$. Nous en déduisons la proposition suivante:
 
-\begin{propo} Soient $s<t$ deux instants et $\gamma$ un chemin espace-temps fermé entre $s$ et $t$ dans le processus conditionné $Y$, une arête $e$ de $\gamma$ vérifie une des trois propriétés suivantes:
-\begin{itemize}[leftmargin = *]
-\item $e\in \mathcal{I}_s$;
-\item $e$ est fermée à l'instant $s$ dans le processus de percolation dynamique $X$;
-\item Il existe un instant $r\in ]s,t]$ où il y a un instant d'arrivée du processus de fermeture.
+\begin{propo}\label{couple} Soient $s<t$ deux instants et $\gamma$ un chemin espace-temps fermé entre $s$ et $t$ dans le processus conditionné $Y$, une arête $e$ de $\gamma$ vérifie une des trois propriétés suivantes:
+\begin{itemize}[leftmargin = 0.9cm]
+\item[(A)] $e\in \mathcal{I}_s$;
+(A)\item [(B)] $e$ est fermée à l'instant $s$ dans le processus de percolation dynamique $X$;
+\item[(C)] Il existe un instant $r\in ]s,t]$ où il y a un instant d'arrivée du processus de fermeture.
 \end{itemize}
 \end{propo}
 
+
 \section{Une inégalité de type BK}
+Nous allons obtenir une inégalité de type BK à l'aide du couplage. Nous reprenons les notation de la proposition \ref{couple} et nous notons $\mathcal{E},\tilde{\mathcal{E}}$ et $\mathcal{D}$ les événements suivants,
+\begin{align*}
+\mathcal{E}&=\{ \text{il existe un chemin espace-temps fermé entre }s \text{ et }t\text{ disjoint de }\mathcal{P}_s\cup \mathcal{I}_s\}\\
+\tilde{\mathcal{E}}&=\{ \text{il existe un chemin espace-temps dont toute arête vérifie } (B)\text{ ou }(C) \}\\
+\mathcal{D}& = \{T\nlongleftrightarrow B\}
+\end{align*}
+Nous montrons l'inégalité suivante:
+\begin{propo} \label{BK'}
+$P(\mathcal{E}\cap\mathcal{D})\leqslant P(\tilde{\mathcal{E}})P(\mathcal{D})$
+\end{propo}
+\begin{proof}
+Nous utilisons le couplage et nous considérons l'événement $\mathcal{E}$ dans le processus $Y$. Or le processus $Y$ est conditionné par $\mathcal{D}$, nous obtenons:
+$$P(\mathcal{E}|\mathcal{D}) = \frac{P(\mathcal{E}\cap\mathcal{D})}{P(\mathcal{D})}.
+$$
+Par la proposition \ref{couple}, or les arêtes du chemin espace temps sont disjointes de $\mathcal{P}_s$, elles vérifient donc $(B)$ ou $(C)$. Donc l'événement $\tilde{\mathcal{E}}$ est réalisé dans le processus $X$. Nous obtenons
+$$ P(\mathcal{E}|\mathcal{D})\leqslant P(\tilde{\mathcal{E}}).
+$$
+Enfin, nous obtenons l'inégalité voulu.
+\end{proof}
+Nous remarquons que cette inégalité permet de majorer l'intersection de deux événement par un produit de deux événement comme l'inégalité de BK. Mais la différence avec l'inégalité de BK est que l'un des deux événement à droite de l'inégalité est modifié selon le couplage. 
+\section{La vitesse du déplacement}
+Nous présentons le problème central dans cette partie. Soient $e\in \mathbb{E}^d$ une arête, $t\in \mathbb{N}$ un instant et $s\in \mathbb{N}^*$. Soit $d$ la distance euclidienne dans $\mathbb{R}^d$ et nous supposons que $$d(e,\mathcal{P}_t\cup \mathcal{I}_t) \geqslant l.$$ Nous voulons montrer que dans ce cas, la probabilité pour que $e$ appartienne à $\mathcal{I}_t\cup \mathcal{P}_t$ décroît exponentiellement vite avec la distance $l$,i.e. 
+\begin{equation}
+\exists c > 0,\, P(e\in \mathcal{P}_{t+s}\cup \mathcal{I}_{t+s}|d(e,\mathcal{P}_t\cup \mathcal{I}_t) \geqslant l)\leqslant \exp(-cl)
+\end{equation}
+Pour montrer ce résultat, nous allons d'abord construire un chemin espace-temps pour représenter le déplacement de l'interface. Ensuite, nous appliquons la proposition \ref{BK'} pour obtenir l'événement $\tilde{\mathcal{E}}$ dans le processus $X$. Enfin, nous estimons la probabilité de $\tilde{\mathcal{E}}$.
+
+
+
+
 
 \end{document}
