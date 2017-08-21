@@ -43,7 +43,7 @@ Nous notons $\mathcal{P}_t$ l'ensemble des arêtes pivot pour l'événement $\{T
 \section{La construction d'un chemin espace-temps}
 Nous allons énoncer une première proposition qui permet de construire un chemin espace temps dont nous avons besoin pour l'estimée.
 
-\begin{propo} \label{stc}Soit $0<s<t$ deux instants et $e\in \mathcal{P}_t$ et $f \in \mathcal{P}_s$. Il existe un chemin espace-temps fermé dans le processus $Y$ qui relie $(e,t)$ à $(f,s)$.
+\begin{propo} \label{stc}Soit $0<s<t$ deux instants et $e\in \mathcal{P}_t$ et $f \in \mathcal{P}_s$. Il existe un chemin espace-temps monotone en temps et fermé dans le processus $Y$ qui relie $(e,t)$ à $(f,s)$. De plus, si une arête $e$ est visitée à deux instants différents $u$ et $v$, il existe un instant $w\in ]u,v[$ où $e$ est ouverte à $w$.
 \end{propo}
 
 \begin{proof}
@@ -51,7 +51,9 @@ Nous remarquons d'abord qu'à l'instant $t$ donné, il existe un chemin fermé q
 $$ \theta(t) = \sup \big\{ \,r\leqslant t, \exists e_1 \in \mathcal{P}_t, e_1 \text{ devient pivot à l'instat } r,e_1\text{ pivot sur }[r,t]\, \big\}.
 $$
 Nous montrons que $\theta(t)< t$. En effet, si à l'instant $t$, il y a une arête qui se ferme, alors il n'y a pas d'arête pivot créé à l'instant $t$, donc les arêtes de $\mathcal{P}_t$ sont aussi pivot à l'instant $t-1$. Dans le cas contraire, si une arête s'ouvre à l'instant $t$. Nous considérons une arête $\epsilon$ de $\mathcal{P}_{t-1}$, il existe un chemin ouvert passant par $\epsilon$ qui relie le haut et le bas à l'instant $t-1$. Or une ouverture d'une arête quelconque ne modifie pas ce chemin ouvert, $\epsilon$ est toujours pivot à l'instant $t$. Donc $\epsilon$ est devenu pivot avant l'instant $t$. D'où $\theta(t)< t$.
-Si $\theta(t)\leqslant s$, le chemin $(e,t),(e_1,t),(e_1,s)$ est un chemin espace-temps voulu. Sinon, $\theta(t)> s$, nous considérons l'arête-temps $(e_1,\theta(t))\in \mathcal{P}_{\theta(t)}$ qui est reliée à $(e,t)$ par le chemin $(e,t),(e_1,t),(e_1,\theta(t))$. Nous devons maintenant montrer le résultat voulu avec $(e_1,\theta(t))$ à la place de $(e,t)$. Nous répétons le procédure précédent et nous construisons une suite décroissante d'instants $(t,\theta(t),\theta(\theta(t)),\dots)$ et une suite d'arête $(e,e_1,e_2,\dots)$. Or tout instant de la suite est supérieur à $s$, la suite est forcément finie. Donc il existe un $k\in\mathbb{N}$ tel que $\theta^k(t)\leqslant s$. Or pour tout $0\leqslant i < k$, l'arête $(e_i,\theta^i(t))$ est reliée à $(e_{i+1},\theta^{i+1}(t))$ par un chemin espace-temps fermé. Nous obtenons un chemin espace-temps fermé qui relie $(e,t)$ à $(e_k,\theta^k(t))$. Or $\theta^k(t)\leqslant s$ et $e_k$ est pivot entre $\theta^k(t)$ et $s$. Nous obtenons un chemin voulu.
+Si $\theta(t)\leqslant s$, le chemin $(e,t),(e_1,t),(e_1,s)$ est un chemin espace-temps voulu. Sinon, $\theta(t)> s$, nous considérons l'arête-temps $(e_1,\theta(t))\in \mathcal{P}_{\theta(t)}$ qui est reliée à $(e,t)$ par le chemin $(e,t),(e_1,t),(e_1,\theta(t))$. Nous devons maintenant montrer le résultat voulu avec $(e_1,\theta(t))$ à la place de $(e,t)$. Nous répétons le procédure précédent et nous construisons une suite décroissante d'instants $(t,\theta(t),\theta(\theta(t)),\dots)$ et une suite d'arête $(e,e_1,e_2,\dots)$. Or tout instant de la suite est supérieur à $s$, la suite est forcément finie. Donc il existe un $k\in\mathbb{N}$ tel que $\theta^k(t)\leqslant s$. Or pour tout $0\leqslant i < k$, l'arête $(e_i,\theta^i(t))$ est reliée à $(e_{i+1},\theta^{i+1}(t))$ par un chemin espace-temps fermé. Nous obtenons un chemin espace-temps fermé qui relie $(e,t)$ à $(e_k,\theta^k(t))$. Or $\theta^k(t)\leqslant s$ et $e_k$ est pivot entre $\theta^k(t)$ et $s$. Par construction, ce chemin est monotone en temps. 
+
+Pour obtenir le deuxième point nous faisons un procédure de modification récursive du chemin précédent $(e_i,\theta^i(t))_{0\leqslant i \leqslant k}$. Nous commençons avec $e_1$. S'il existe $i$ une indice telle que $e_i=e_1$ et que $e_1$ est fermée entre $\theta^i(t)$ et $\theta^1(t)$, nous enlevons les arêtes entre $1$ et $i$ et nous relions directement $e_1$ et $e_i$ par un changement de temps et nous recommençons le procédure avec le nouveau chemin obtenu. Sinon, nous continuons le procédure avec $e_2$. Or la longueur du chemin diminue à chaque modification, ce procédure se termine. De plus, ce procédure ne modifie pas les l'ordre de $\theta^i$, la monotonie est conservée.
 \end{proof}
 
 \section{La comparaison entre deux processus}
@@ -62,18 +64,18 @@ Soit $(e,t)$ une arête-temps fermée dans le processus $Y$. Dans le processus $
 \begin{propo}\label{couple} Soient $s<t$ deux instants et $\gamma$ un chemin espace-temps fermé entre $s$ et $t$ dans le processus conditionné $Y$, une arête $e$ de $\gamma$ vérifie une des trois propriétés suivantes:
 \begin{itemize}[leftmargin = 0.9cm]
 \item[(A)] $e\in \mathcal{I}_s$;
-(A)\item [(B)] $e$ est fermée à l'instant $s$ dans le processus de percolation dynamique $X$;
+\item[(B)] $e$ est fermée à l'instant $s$ dans le processus de percolation dynamique $X$;
 \item[(C)] Il existe un instant $r\in ]s,t]$ où il y a un instant d'arrivée du processus de fermeture.
 \end{itemize}
 \end{propo}
 
 
 \section{Une inégalité de type BK}
-Nous allons obtenir une inégalité de type BK à l'aide du couplage. Nous reprenons les notation de la proposition \ref{couple} et nous notons $\mathcal{E},\tilde{\mathcal{E}}$ et $\mathcal{D}$ les événements suivants,
+Nous allons obtenir une inégalité de type BK à l'aide du couplage. Nous reprenons les notation de la proposition \ref{couple} et nous notons $\mathcal{E},\tilde{\mathcal{E}}$ et $\mathcal{D}$ les ensembles de configurations dans $\Lambda$ entre $s$ et $t$ suivants,
 \begin{align*}
-\mathcal{E}&=\{ \text{il existe un chemin espace-temps fermé entre }s \text{ et }t\text{ disjoint de }\mathcal{P}_s\cup \mathcal{I}_s\}\\
-\tilde{\mathcal{E}}&=\{ \text{il existe un chemin espace-temps dont toute arête vérifie } (B)\text{ ou }(C) \}\\
-\mathcal{D}& = \{T\nlongleftrightarrow B\}
+\mathcal{E}(\gamma)&=\{\,\gamma \text{ fermé entre }s \text{ et }t\text{ disjoint de }\mathcal{P}_s\cup \mathcal{I}_s\,\}\\
+\tilde{\mathcal{E}}(\gamma)&=\{\,\text{toute arête de }\gamma\text{ vérifie } (B)\text{ ou }(C) \,\}\\
+\mathcal{D}& = \{\,T\nlongleftrightarrow B \text{ entre }s \text{ et }t\,\}
 \end{align*}
 Nous montrons l'inégalité suivante:
 \begin{propo} \label{BK'}
@@ -86,17 +88,57 @@ $$
 Par la proposition \ref{couple}, or les arêtes du chemin espace temps sont disjointes de $\mathcal{P}_s$, elles vérifient donc $(B)$ ou $(C)$. Donc l'événement $\tilde{\mathcal{E}}$ est réalisé dans le processus $X$. Nous obtenons
 $$ P(\mathcal{E}|\mathcal{D})\leqslant P(\tilde{\mathcal{E}}).
 $$
-Enfin, nous obtenons l'inégalité voulu.
+Enfin, nous obtenons l'inégalité voulu en combinant les deux inégalités précédentes.
 \end{proof}
 Nous remarquons que cette inégalité permet de majorer l'intersection de deux événement par un produit de deux événement comme l'inégalité de BK. Mais la différence avec l'inégalité de BK est que l'un des deux événement à droite de l'inégalité est modifié selon le couplage. 
 \section{La vitesse du déplacement}
-Nous présentons le problème central dans cette partie. Soient $e\in \mathbb{E}^d$ une arête, $t\in \mathbb{N}$ un instant et $s\in \mathbb{N}^*$. Soit $d$ la distance euclidienne dans $\mathbb{R}^d$ et nous supposons que $$d(e,\mathcal{P}_t\cup \mathcal{I}_t) \geqslant l.$$ Nous voulons montrer que dans ce cas, la probabilité pour que $e$ appartienne à $\mathcal{I}_t\cup \mathcal{P}_t$ décroît exponentiellement vite avec la distance $l$,i.e. 
+Nous présentons le problème central dans cette partie. Soient $e\in \mathbb{E}^d$ une arête, $l\in \mathbb{R}$, $t\in \mathbb{N}$ un instant et $\displaystyle s\leqslant K\frac{l}{\ln l}$. Soit $d$ la distance euclidienne dans $\mathbb{R}^d$ et nous supposons que $$d(e,\mathcal{P}_t\cup \mathcal{I}_t) \geqslant l.$$ Nous voulons montrer que dans ce cas, la probabilité pour que $e$ appartienne à $\mathcal{I}_t\cup \mathcal{P}_t$ décroît exponentiellement vite avec la distance $l$,i.e. 
 \begin{equation}
 \exists c > 0,\, P(e\in \mathcal{P}_{t+s}\cup \mathcal{I}_{t+s}|d(e,\mathcal{P}_t\cup \mathcal{I}_t) \geqslant l)\leqslant \exp(-cl)
 \end{equation}
-Pour montrer ce résultat, nous allons d'abord construire un chemin espace-temps pour représenter le déplacement de l'interface. Ensuite, nous appliquons la proposition \ref{BK'} pour obtenir l'événement $\tilde{\mathcal{E}}$ dans le processus $X$. Enfin, nous estimons la probabilité de $\tilde{\mathcal{E}}$.
-
-
+Pour montrer ce résultat, nous allons d'abord construire un chemin espace-temps selon la proposition \ref{stc} pour représenter le déplacement de l'interface. Ensuite, nous appliquons la proposition \ref{BK'} pour obtenir l'événement $\tilde{\mathcal{E}}$ dans le processus $X$. Enfin, nous estimons la probabilité de $\tilde{\mathcal{E}}$. Nous calculons d'abord $P(\tilde{\mathcal{E}})$.
+\begin{propo} \label{decexp}
+Soit $\gamma$ un chemin espace-temps de longueur $n$ avec $m$ changement de temps entre $s$ et $t$. Nous supposons qu'il existe une constante $\kappa$ telle que $t-s \leqslant \kappa |\lambda|$, alors il existe une constante $0\leqslant\hat{p}< 1$ et une constante $c(p)>0$ qui tend vers $+\infty$ quand $p$ tend vers $1$ telles que $$\forall p \geqslant \hat{p}, \quad P(\tilde{\mathcal{E}}(\gamma))\leqslant \exp(-c(p)(n-m)).$$
+\end{propo}
+\begin{proof}
+Nous fixons d'abord une arête $e\in \Lambda$ et nous notons $N_e$ le nombre d'arrivées de fermeture de l'arête $e$. Nous calculons la probabilité que $e$ vérifie $(B)$ ou $(C)$.
+\begin{multline*}P(e \text{ vérifie }(B) \text{ ou }(C))\leqslant P(e \text{ fermé à l'instant } s)\\+P(\exists r \in ]s,t], N_e(r)=N_e(r-1)+1)
+\end{multline*}
+Or la loi de la configuration dans $\Lambda$ à l'instant $s$ est la loi de la percolation Bernoulli de paramètre $p$, nous obtenons $$P(e \text{ fermé à l'instant } s) = 1-p.$$
+Comme à chaque instant, nous choisissons une arête dans $\Lambda$ uniformément et nous tirons l'état de cette arête selon la loi de Bernoulli de paramètre $p$, nous obtenons la deuxième probabilité
+$$ P(\exists r \in ]s,t], N_e(r)=N_e(r-1)+1) \leqslant \frac{t-s}{|\Lambda|}(1-p)\leqslant \kappa(1-p).
+$$
+Nous obtenons que pour une arête $e$ fixée, $$P(e \text{ vérifie }(B) \text{ ou }(C))\leqslant (1+\kappa)(1-p).$$
+Nous considérons maintenant chaque arête de $\gamma$. Elle contient au moins $n-m$ déplacements en espace. Or $(B)$ et $(C)$ sont entièrement déterminés par le processus $X$ et les arêtes ne restent pas fermées entre deux visites, nous obtenons 
+$$P(\tilde{\mathcal{E}}(\gamma))\leqslant (1+\kappa)^{n-m}(1-p)^{n-m} = \exp\big(\ln[(1+\kappa)(1-p)](n-m)\big).
+$$ 
+Nous posons $c(p) = -\ln[(1+\kappa)(1-p)]$. Or $\ln[(1+\kappa)(1-p)]$ tend vers $-\infty$ quand $p$ tend vers 1. Il existe une constante $\hat{p}<1$ telle que pour tout $p\geqslant \hat{p}$, nous avons $c(p)>0$. Nous obtenons aussi 
+$ \lim_{p\rightarrow 1}c(p) = +\infty
+$.
+\end{proof}
+Nous montrons maintenant le résultat $(1)$. Nous considérons d'abord le cas $e\in \mathcal{P}_{t+s}$ et est de distance au moins $l$ avec $\mathcal{P}_t$.
+\begin{proof}
+D'après la proposition \ref{stc}, il existe un chemin espace-temps $\rho$ qui relie $e$ à une arête de $\mathcal{P}_t$. Nous notons $\rho= (e_i,t_i)_{1\leqslant i \leqslant N}$ avec $e_1 = e, t_1 = t+s$ et $e_N\in \mathcal{P}_t, t_N = t$. Ce chemin est de projection en espace au moins $l$ car $d(e,\mathcal{P}_t)\geqslant l$. Nous notons $(e_n,t_n)$ la première arête de $\rho$ qui sort de la boule $B(e,l/2)$ de ce chemin, i.e. 
+$$ n = \sup\,\big\{k>1, \forall 1<i<k, e_i\in B(e,l/2) \big\}.
+$$
+Nous notons $\gamma$ le bout de $\rho$ entre $(e_1,t_1)$ et $(e_n,t_n)$.
+Nous écrivons donc 
+$$ P(e\in \mathcal{P}_{t+s}|e\notin \mathcal{P}_t\cup \mathcal{I}_t) \leqslant \sum_{\gamma}P( e\overset{\gamma \text{ fermé}}{\longleftrightarrow} \partial B(e,l/2)).
+$$
+Nous fixons d'abord la longueur du chemin $n$ et le nombre de changement de temps $m$. La proposition \ref{couple} et \ref{BK'} nous permet de majorer chaque terme de la somme par $P(\tilde{\mathcal{E}}(\gamma))$ et d'après la proposition \ref{decexp} nous avons qu'il existe $\tilde{p}$ indépendant de $\gamma$ et $c(p)$ telles que 
+$$P(e\in \mathcal{P}_{t+s}|e\notin \mathcal{P}_t\cup \mathcal{I}_t) \leqslant \sum_{n,m,\gamma} \exp(-c(p)(n-m)).
+$$
+Il nous faut maintenant compter le nombre de chemin $\gamma$ de longueur $n$ avec $m$ changements de temps entre $t$ et $t+s$. Or le chemin est monotone, il y a $\displaystyle s \choose m$ choix pour les instants du chemin. Or $\gamma$ est à l'intérieur de $B(e,l/2)$, il y a au plus $l^{md}$ choix pour les arêtes de changement de temps. Le nombre de $\gamma$ est donc majoré par
+$$ {s\choose m} l^{md} (2d-1)^{n-m}\leqslant (sl^d)^m(2d-1)^{n-m}.
+$$
+Or $m\leqslant s$ et $n\geqslant l/2$, nous obtenons donc une majoration de la probabilité suivante
+\begin{multline*}P(e\in \mathcal{P}_{t+s}|e\notin \mathcal{P}_t\cup \mathcal{I}_t) \leqslant \sum_{n\geqslant l/2}s(sl^d)^s\exp(-c(p)(n-s))\\\leqslant \sum_{n\geqslant l/2} \exp(\ln s+s\ln s+sd\ln l +sc(p)-c(p)n)
+\\ \leqslant \exp(\ln s+s\ln s+sd\ln l +sc(p) -c(p)\frac{l}{3}).
+\end{multline*}
+Or il existe une constante $K$ telle que $\displaystyle s \leqslant K(\frac{l}{\ln l})$, nous pouvons majorer $\ln s+s\ln s+sd\ln l +sc(p)$ par $\displaystyle 3Kl+Kc(p)\frac{l}{\ln l}$. Or $c(p)$ tend vers $+\infty$ quand $p$ tend vers $1$, donc pour $l$ assez grand et $p>\tilde{p}$, nous avons 
+$$P(e\in \mathcal{P}_{t+s}|e\notin \mathcal{P}_t\cup \mathcal{I}_t) \leqslant \exp(-c(p)l).
+$$
+\end{proof}
 
 
 
