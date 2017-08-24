@@ -92,7 +92,7 @@ Enfin, nous obtenons l'inégalité voulu en combinant les deux inégalités pré
 \end{proof}
 Nous remarquons que cette inégalité permet de majorer l'intersection de deux événement par un produit de deux événement comme l'inégalité de BK. Mais la différence avec l'inégalité de BK est que l'un des deux événement à droite de l'inégalité est modifié selon le couplage. 
 \section{La vitesse du déplacement}
-Nous présentons le problème central dans cette partie. Soient $e\in \mathbb{E}^d$ une arête, $l\in \mathbb{R}$, $t\in \mathbb{N}$ un instant et $\displaystyle s\leqslant K\frac{l}{\ln l}$. Soit $d$ la distance euclidienne dans $\mathbb{R}^d$ et nous supposons que $$d(e,\mathcal{P}_t\cup \mathcal{I}_t) \geqslant l.$$ Nous voulons montrer que dans ce cas, la probabilité pour que $e$ appartienne à $\mathcal{I}_t\cup \mathcal{P}_t$ décroît exponentiellement vite avec la distance $l$,i.e. 
+Nous présentons le problème central dans cette partie. Soient $e\in \mathbb{E}^d$ une arête, $l\in \mathbb{R}$, $t\in \mathbb{N}$ un instant et $\displaystyle 0\leqslant s\leqslant K\frac{l}{\ln l}$. Soit $d$ la distance euclidienne dans $\mathbb{R}^d$ et nous supposons que $$d(e,\mathcal{P}_t\cup \mathcal{I}_t) \geqslant l.$$ Nous voulons montrer que dans ce cas, la probabilité pour que $e$ appartienne à $\mathcal{I}_t\cup \mathcal{P}_t$ décroît exponentiellement vite avec la distance $l$,i.e. 
 \begin{equation}
 \exists c > 0,\, P(e\in \mathcal{P}_{t+s}\cup \mathcal{I}_{t+s}|d(e,\mathcal{P}_t\cup \mathcal{I}_t) \geqslant l)\leqslant \exp(-cl)
 \end{equation}
@@ -116,8 +116,9 @@ Nous posons $c(p) = -\ln[(1+\kappa)(1-p)]$. Or $\ln[(1+\kappa)(1-p)]$ tend vers 
 $ \lim_{p\rightarrow 1}c(p) = +\infty
 $.
 \end{proof}
-Nous montrons maintenant le résultat $(1)$. Nous considérons d'abord le cas $e\in \mathcal{P}_{t+s}$ et est de distance au moins $l$ avec $\mathcal{P}_t$.
+Nous montrons maintenant le résultat $(1)$. 
 \begin{proof}
+Nous considérons d'abord le cas $e\in \mathcal{P}_{t+s}$ et est de distance au moins $l$ avec $\mathcal{P}_t$.
 D'après la proposition \ref{stc}, il existe un chemin espace-temps $\rho$ qui relie $e$ à une arête de $\mathcal{P}_t$. Nous notons $\rho= (e_i,t_i)_{1\leqslant i \leqslant N}$ avec $e_1 = e, t_1 = t+s$ et $e_N\in \mathcal{P}_t, t_N = t$. Ce chemin est de projection en espace au moins $l$ car $d(e,\mathcal{P}_t)\geqslant l$. Nous notons $(e_n,t_n)$ la première arête de $\rho$ qui sort de la boule $B(e,l/2)$ de ce chemin, i.e. 
 $$ n = \sup\,\big\{k>1, \forall 1<i<k, e_i\in B(e,l/2) \big\}.
 $$
@@ -138,8 +139,14 @@ Or $m\leqslant s$ et $n\geqslant l/2$, nous obtenons donc une majoration de la p
 Or il existe une constante $K$ telle que $\displaystyle s \leqslant K(\frac{l}{\ln l})$, nous pouvons majorer $\ln s+s\ln s+sd\ln l +sc(p)$ par $\displaystyle 3Kl+Kc(p)\frac{l}{\ln l}$. Or $c(p)$ tend vers $+\infty$ quand $p$ tend vers $1$, donc pour $l$ assez grand et $p>\tilde{p}$, nous avons 
 $$P(e\in \mathcal{P}_{t+s}|e\notin \mathcal{P}_t\cup \mathcal{I}_t) \leqslant \exp(-c(p)l).
 $$
+
+Le cas où $e\in \mathcal{I}_{t+s}$ se déduit facilement du cas $e\in \mathcal{P}_{t+s}$. En effet, pour avoir une interface contenant l'arête $e$ à l'instant $t+s$, il faut que l'arête $e$ devienne pivot avant cette instant. Sinon, elle se comporte identiquement dans les deux processus $X$ et $Y$. Donc nous avons l'inclusion des événements 
+$$ \big\{ e\in \mathcal{I}_{t+s}, d(e,\mathcal{I}_t \cup \mathcal{P}_{t}\big) \geqslant l\} \subset \bigcup_{0<r<s}\big\{ e\in \mathcal{P}_{t+r}, d(e,\mathcal{I}_t \cup \mathcal{P}_{t}\big) \geqslant l\}.
+$$
+Or $s$ est majoré par $\displaystyle K\frac{l}{\ln l}$, nous avons la majoration de la probabilité
+\begin{multline*} P(e\in \mathcal{I}_{t+s}, d(e,\mathcal{I}_t \cup \mathcal{P}_{t}\big) \geqslant l) \leqslant \sum_{0<r<s} P(e\in \mathcal{P}_{t+r}, d(e,\mathcal{I}_t \cup \mathcal{P}_{t})\geqslant l) \\ \leqslant K\frac{l}{\ln l}\exp(-c(p)l)\leqslant \exp(-c'(p)l)
+\end{multline*}
+pour une autre constante $c'(p)$. 
 \end{proof}
-
-
 
 \end{document}
