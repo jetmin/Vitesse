@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.8.31)  4 SEP 2017 16:45
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.8.31)  8 SEP 2017 16:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -636,9 +636,9 @@ Package: centernot 2011/07/11 v1.3 Centers the not symbol horizontally (HO)
 Package: parskip 2001/04/09 non-zero parskip adjustments
 )
 \c@def=\count124
-\c@thm=\count125
-\c@prop=\count126
-\c@cor=\count127
+\c@th=\count125
+\c@propo=\count126
+\c@coro=\count127
  (./vitesse.aux)
 \openout1 = `vitesse.aux'.
 
@@ -725,87 +725,104 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-LaTeX Font Info:    Try loading font information for U+msa on input line 27.
+LaTeX Font Info:    Try loading font information for U+msa on input line 28.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 27.
+LaTeX Font Info:    Try loading font information for U+msb on input line 28.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+rsfs on input line 27.
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 28.
 
 (/usr/share/texlive/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-Overfull \hbox (19.41315pt too wide) in paragraph at lines 39--39
-[]\OT1/cmr/bx/n/12 D^^Sefinition 1. []\OT1/cmr/m/it/12 Soit $\OT1/cmr/m/n/12 (\
-OML/cmm/m/it/12 X[]; Y[]\OT1/cmr/m/n/12 )[]$ \OT1/cmr/m/it/12 un cou-plage d^^S
-efini pr^^Sec^^Sedemment, nous d^^Sefinissons
- []
-
-
-Overfull \hbox (22.66382pt too wide) in paragraph at lines 43--43
-[]\OT1/cmr/bx/n/17.28 La construc-tion d'un che-min espace-temps 
- []
-
-
-Overfull \hbox (5.61703pt too wide) in paragraph at lines 44--45
-\OT1/cmr/m/n/12 che-min es-pace temps dont nous avons be-soin pour la suite de 
-notre ^^Setude. 
+Overfull \hbox (10.53166pt too wide) in paragraph at lines 30--43
+ \OT1/cmr/bx/n/12 Les bo^^^Ptes $\OT1/cmr/m/n/12 ^^C(\OML/cmm/m/it/12 `; h\OT1/
+cmr/m/n/12 )$\OT1/cmr/bx/n/12 .[] \OT1/cmr/m/n/12 Nous no-tons $^^C(\OML/cmm/m/
+it/12 `; h\OT1/cmr/m/n/12 )$ le sous graphe de $(\U/msb/m/n/12 Z[]\OML/cmm/m/it
+/12 ; \U/msb/m/n/12 E[]\OT1/cmr/m/n/12 )$ ^^Ra l'int^^Serieur
  []
 
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 59.
+Overfull \hbox (1.84273pt too wide) in paragraph at lines 65--66
+\OT1/cmr/m/n/12 l'ar^ete $\OML/cmm/m/it/12 e[]$ \OT1/cmr/m/n/12 suit la loi uni
+-forme dans la bo^^^Pte $^^C$. Pour chaque $\OML/cmm/m/it/12 e[]$\OT1/cmr/m/n/1
+2 , nous d^^Seterminons
+ []
 
-(/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
+[2]
+Overfull \hbox (14.13403pt too wide) detected at line 82
+\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x; s\OT1/cmr/m/n/12 ) [] (\OML/cmm/m/it/12 y;
+ t\OT1/cmr/m/n/12 )[]\OMS/cmsy/m/n/12 9\OML/cmm/m/it/12 e[]x; f[]y \OT1/cmr/m/n
+/12 (\OML/cmm/m/it/12 e; s\OT1/cmr/m/n/12 ) [] (\OML/cmm/m/it/12 f; t\OT1/cmr/m
+/n/12 )\OML/cmm/m/it/12 :
+ []
+
+[3]
+Overfull \hbox (22.66382pt too wide) in paragraph at lines 108--108
+[]\OT1/cmr/bx/n/17.28 La construc-tion d'un che-min espace-temps 
+ []
+
+
+Overfull \hbox (5.61703pt too wide) in paragraph at lines 109--110
+\OT1/cmr/m/n/12 che-min es-pace temps dont nous avons be-soin pour la suite de 
+notre ^^Setude. 
+ []
+
+[4]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 124.
+
+ (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 59.
- [2] [3]
-Overfull \hbox (26.95671pt too wide) in paragraph at lines 97--99
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 124.
+ [5]
+Overfull \hbox (26.95671pt too wide) in paragraph at lines 165--167
 \OT1/cmr/m/n/12 Enfin, nous ob-te-nons l'in^^Segalit^^Se voulu en com-bi-nant l
 es deux in^^Segalit^^Ses pr^^Sec^^Sedentes.
  []
 
-[4] [5]
+[6] [7]
 
 Package amsmath Warning: Foreign command \atopwithdelims;
 (amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 139.
+(amsmath)                 on input line 210.
 
-[6] [7] (./vitesse.aux) ) 
+[8] [9] (./vitesse.aux) ) 
 Here is how much of TeX's memory you used:
- 12114 strings out of 493304
- 215908 string characters out of 6139871
- 272855 words of memory out of 5000000
- 15297 multiletter control sequences out of 15000+600000
- 10039 words of font info for 39 fonts, out of 8000000 for 9000
+ 12157 strings out of 493304
+ 216890 string characters out of 6139871
+ 273865 words of memory out of 5000000
+ 15339 multiletter control sequences out of 15000+600000
+ 10945 words of font info for 42 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 56i,13n,55p,1591b,242s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 56i,13n,55p,1096b,582s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsf
 onts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi
-12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb>
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/s
-hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/te
-xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
-ts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
-s/symbols/msbm10.pfb>
-Output written on vitesse.pdf (7 pages, 166850 bytes).
+m/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cme
+x10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/
+texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/font
+s/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/sy
+mbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/sym
+bols/msbm10.pfb>
+Output written on vitesse.pdf (9 pages, 188255 bytes).
 PDF statistics:
- 87 PDF objects out of 1000 (max. 8388607)
- 63 compressed objects within 1 object stream
+ 97 PDF objects out of 1000 (max. 8388607)
+ 70 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
