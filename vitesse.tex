@@ -44,7 +44,7 @@
 \paragraph{Les ensembles séparants.} Soient $A,B$ deux sous-ensembles de $\mathbb{Z}^d$. Nous disons qu'un ensemble d'arêtes $S\subset \mathbb{E}^d$ sépare $A$ et $B$ si aucune partie connexe du graphe $(\mathbb{Z}^d,\mathbb{E}^d \setminus S)$ n'intersecte simultanément $A$ et $B$. Un tel ensemble est appelé un ensemble séparant pour $A$ et $B$. Nous disons que $S$ est un ensemble séparant minimal pour $A,B$ si aucun sous-ensemble strict de $S$ ne sépare $A$ et $B$.
 
 \paragraph{Les configurations.} L'espace des configurations est $\Omega = \{0,1\}^{\mathbb{E}^d}$. Une configuration générique est notée $\omega = \{\omega(e), e\in \mathbb{E}^d\} \in \Omega$ . L'arête $e$ est ouverte dans la configuration $\omega$ si $\omega(e) = 1$ et fermée si $\omega(e)= 0$. 
-Soient $A$ un sous-ensemble de $\mathbb{Z}^d$ et $\omega$ une configuration, la configuration $\omega$ restreinte à $A$, notée $\omega\mid_{A}$, est la restriction de $\omega$ aux arêtes dont les 2 extrémités sont incluses dans $A$.
+Soient $A$ un sous-ensemble de $(\mathbb{Z}^d,\mathbb{E}^d)$ et $\omega$ une configuration, la configuration $\omega$ restreinte à $A$, notée $\omega\mid_{A}$, est la restriction de $\omega$ aux arêtes dont les 2 extrémités sont incluses dans $A$.
 Soient $e\in \mathbb{E}^d$ une arête et $\omega\in \Omega$ une configuration, nous définissons les configurations $\omega^e,\omega_e$ par:
 $$
  \forall f\in \mathbb{E}^d \qquad\omega^e(f) = \left\lbrace \begin{array}{cc}
@@ -61,13 +61,17 @@ Les configurations $\omega^e,\omega_e$ sont obtenues à partir de $\omega$ en ou
 Nous disons que $x$ et $y$ sont reliés par un chemin ouvert dans la configuration $\omega$, noté $\smash{x\overset{\omega}{\longleftrightarrow }y}$, s'il existe un chemin qui relie $x,y$ tel que toute arête de ce chemin est ouverte dans la configuration $\omega$. Nous notons aussi $\smash{x\overset{\omega}{\nlongleftrightarrow} y}$ l'événement complémentaire. Soit $A$ un sous-ensemble de $\Lambda(l,h)$, nous notons $\smash{x\overset{A}{\longleftrightarrow} y}$ s'il existe un chemin ouvert entre $x$ et $y$ dont les arêtes sont incluses dans $A$.
 
 Soient $A,B$ deux sous-graphes de $(\mathbb{Z}^d,\mathbb{E}^d)$, nous disons que $A$ est connecté à $B$ dans la configuration $\omega$, que nous notons $\smash{A\overset{\omega}{\longleftrightarrow} B}$, s'il existe un chemin entre un sommet de $A$ et un sommet de $B$. Dans ce mémoire, nous étudions en particulier les chemins entre un sommet de $T(l,h)$ et un sommet de $B(l,h)$.
+\paragraph{La probabilité de percolation.} Soit un réel $p\in [0,1]$. Sur l'espace $\Omega$, nous considérons la tribu cylindrique $\mathcal{F}$. Nous considérons la probabilité produit $$P_p = (p\delta_1 +(1-p)\delta_0)^{\otimes\mathbb{E}^d}.$$ Intuitivement, une configuration s'obtient en fermant indépendamment chaque arête du réseau $\mathbb{Z}^d$ avec une probabilité $1-p$. Pour $A$ un sous-ensemble de $(\mathbb{Z}^d,\mathbb{E}^d)$, $\Omega_{|A}$ est l'ensemble de configurations restreintes dans $A$.
 \subsection{Le processus de percolation dynamique}
-Nous considérons le processus de percolation dynamique dans une boîte $\Lambda$. Plus précisément, il s'agit d'un processus $(X_t)_{t\in\mathbb{N}}$ à valeurs dans $\{0,1\}^{\mathbb{E}^d}$. Nous partons d'une configuration initiale $X_0$ et à chaque instant $t$, nous choisissons une suite indépendante d'arêtes $(e_t)_{t\in \mathbb{N}^*}$ dont pour tout instant $t$, l'arête $e_t$ suit la loi uniforme dans la boîte $\Lambda$. Pour chaque $e_t$, nous déterminons son état selon $(b_t)_{t\in \mathbb{N}^*}$ une suite de variables de loi Bernoulli indépendantes de paramètre $p$. Nous écrivons
+Nous considérons le processus de percolation dynamique dans une boîte $\Lambda$. Il s'agit d'une suite de triplet $(X_t,e_t,b_t)_{t\in \mathbb{N}}$ dont $(X_t)_{t\in\mathbb{N}}$ est un processus à valeurs dans $\Omega_{|\Lambda}$, $(e_t)_{t\in\mathbb{N}}$ est une suite d'arêtes $(e_t)_{t\in \mathbb{N}^*}$ dans la boîte $\Lambda$ et $(b_t)_{t\in \mathbb{N}^*}$ est une suite de variables aléatoire à valeurs dans $\{0,1\}$. Décrivons maintenant le dynamique du processus. La suite $(e_t)_{t\in\mathbb{N}}$ est une suite d'arêtes indépendantes dont chaque $e_t$ suit la loi uniforme sur l'ensemble des arêtes à l'intérieur de $\Lambda$. La suite $(b_t)_{t\in\mathbb{N}}$ est une suite indépendante de variable de Bernoulli de paramètre $p$. Le processus $(X_t)_{t\in\mathbb{N}}$ se définit par une récurrence sur $t$, plus précisément, nous partons d'une configuration initiale $X_0$. A l'instant $t\geqslant 1$, nous changeons l'état de l'arête $e_t$ en $b_t$, i.e.
 $$ X_t(e) = \left\lbrace \begin{array}{cc}
 X_{t-1}(e) & \text{si }e\neq e_t \\
 b_{t} & \text{si } e = e_t
 \end{array} \right..
 $$ 
+
+\paragraph{La probabilité de percolation dynamique.}
+Nous notons $\bar{\Omega} = \Omega_{|\Lambda}^\mathbb{N}\times \Lambda^\mathbb{N}\times\{0,1\}^\mathbb{N}$ l'espace de configuration de percolation dynamique et $\bar{\mathcal{F}}$ la filtration naturelle associée. Nous notons $\mathbb{P}$
 \subsection{Les chemins espace-temps}
 Nous introduisons les chemins espace-temps définis avec un processus de percolation dynamique $X$. Un chemin espace-temps s'obtient en prolongeant un chemin dans le temps. Plus précisément, nous définissons une relation d'équivalence $\overset{X}{\longleftrightarrow}$ sur les couples $(e,t) \in (\mathbb{E}^d,\mathbb{N})$ par, soient $e = \langle a,b\rangle,f = \langle c,d\rangle \in \mathbb{E}^d$ deux arêtes, et $s,t\geqslant 0$ deux instants,
 \begin{align*}
@@ -146,7 +150,7 @@ Nous allons distinguer trois cas. Dans le premier cas $\tilde{t_i}\geqslant s$, 
 
 
 \section{Une inégalité de type BK}
-Nous allons obtenir une inégalité de type BK à l'aide du couplage. Nous reprenons les notation de la proposition \ref{couple} et nous notons $\mathcal{E},\tilde{\mathcal{E}}$ et $\mathcal{D}$ les ensembles de configurations dans $\Lambda$ entre $s$ et $t$ suivants,
+Nous allons obtenir une inégalité qui nous permet de comparer un chemin espace temps dans les deux configuration. Nous reprenons les notation de la proposition \ref{couple} et nous notons $\mathcal{E},\tilde{\mathcal{E}}$ et $\mathcal{D}$ les ensembles de configurations dans $\Lambda$ entre $s$ et $t$ suivants,
 \begin{align*}
 \mathcal{E}(\gamma)&=\{\,\gamma \text{ fermé entre }s \text{ et }t\text{ disjoint de }\mathcal{P}_s\cup \mathcal{I}_s\,\}\\
 \tilde{\mathcal{E}}(\gamma)&=\{\,\text{toute arête de }\gamma\text{ vérifie } (B)\text{ ou }(C) \,\}\\
