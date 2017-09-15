@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.8.31)  12 SEP 2017 16:51
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.8.31)  15 SEP 2017 15:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -783,12 +783,26 @@ File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 128.
  [5] [6]
+Overfull \hbox (64.60239pt too wide) in paragraph at lines 158--158
+[] 
+ []
+
+
 Overfull \hbox (26.95671pt too wide) in paragraph at lines 169--171
 \OT1/cmr/m/n/12 Enfin, nous ob-te-nons l'in^^Segalit^^Se voulu en com-bi-nant l
 es deux in^^Segalit^^Ses pr^^Sec^^Sedentes.
  []
 
 [7] [8]
+Overfull \hbox (6.27928pt too wide) detected at line 213
+\OML/cmm/m/it/12 P[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 e \OMS/cmsy/m/n/12 2 P[]j
+\OML/cmm/m/it/12 d\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 e; \OMS/cmsy/m/n/12 P[] [ I
+[]\OT1/cmr/m/n/12 ) \U/msa/m/n/12 > \OML/cmm/m/it/12 l\OT1/cmr/m/n/12 ) \U/msa/
+m/n/12 6 [] [] []\OT1/cmr/m/n/12 (\OMS/cmsy/m/n/12 ^^@\OML/cmm/m/it/12 c\OT1/cm
+r/m/n/12 (\OML/cmm/m/it/12 p\OT1/cmr/m/n/12 )(\OML/cmm/m/it/12 n \OMS/cmsy/m/n/
+12 ^^@ \OML/cmm/m/it/12 m\OT1/cmr/m/n/12 ))\OML/cmm/m/it/12 :
+ []
+
 
 Package amsmath Warning: Foreign command \atopwithdelims;
 (amsmath)                \frac or \genfrac should be used instead
@@ -796,13 +810,13 @@ Package amsmath Warning: Foreign command \atopwithdelims;
 
 [9] [10] (./vitesse.aux) ) 
 Here is how much of TeX's memory you used:
- 12157 strings out of 493304
- 216890 string characters out of 6139871
- 273865 words of memory out of 5000000
- 15339 multiletter control sequences out of 15000+600000
+ 12158 strings out of 493304
+ 216899 string characters out of 6139871
+ 272873 words of memory out of 5000000
+ 15340 multiletter control sequences out of 15000+600000
  10945 words of font info for 42 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 56i,13n,55p,1102b,582s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 56i,13n,55p,1096b,582s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/ams
 fonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
 cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
@@ -818,7 +832,7 @@ ic/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
 onts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/s
 ymbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/sy
 mbols/msbm10.pfb>
-Output written on vitesse.pdf (10 pages, 191268 bytes).
+Output written on vitesse.pdf (10 pages, 193673 bytes).
 PDF statistics:
  100 PDF objects out of 1000 (max. 8388607)
  72 compressed objects within 1 object stream
