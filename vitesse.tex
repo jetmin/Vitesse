@@ -1,11 +1,11 @@
 \documentclass[titlepage,a4paper,12pt]{article}
 
-\usepackage{amsmath,amsfonts,amssymb,amsthm,mathrsfs,enumitem}
+\usepackage{amsmath,amsfonts,amssymb,amsthm,mathrsfs,stmaryrd,enumitem}
 \usepackage[french]{babel}
 \usepackage{tikz}
 \usepackage[utf8]{inputenc}
 \usepackage{centernot}
-\usepackage[parfill]{parskip}
+\setlength{\parindent}{0cm}
 \newcounter{def}
 \newcounter{th}
 \newcounter{propo}
@@ -18,16 +18,14 @@
 \newtheorem{prop}[propo]{Proposition}
 \newtheorem{cor}[coro]{Corollaire}
 
-\newcommand{\nlongleftrightarrow}{\longleftrightarrow \kern-15pt\not \kern15pt}
-
 
 \setlength{\parskip}{0pt}
 \begin{document}
 \section{Introduction}
 \subsection{Les notations générales}
-\paragraph{Le réseau $(\mathbb{Z}^d,\mathbb{E}^d)$.} Soit $x,y$ deux points de $\mathbb{Z}^d$, nous disons que $x,y$ sont voisins s'ils sont à distance 1 en norme euclidienne. L'ensemble $\mathbb{E}^d$ est l'ensemble des paires $\{x,y\}$, où $x,y$ sont deux points voisins de $\mathbb{Z}^d$. Le réseau $(\mathbb{Z}^d, \mathbb{E}^d)$ est le graphe dont $\mathbb{Z}^d$ est l'ensemble des sommets et $\mathbb{E}^d$ est l'ensemble des arêtes. Soit $A$ un sous-ensemble de $(\mathbb{Z}^d,\mathbb{E}^d)$, nous disons que $e = \langle x,y\rangle$ est incluse dans $A$ si le segment ouvert $]x,y[$ est inclus dans $A$.
+\paragraph{Le réseau $(\mathbb{Z}^d,\mathbb{E}^d)$.} Soit $x,y$ deux points de $\mathbb{Z}^d$, nous disons que $x,y$ sont voisins s'ils sont à distance 1 en norme euclidienne. L'ensemble $\mathbb{E}^d$ est l'ensemble des paires $\{x,y\}$, où $x,y$ sont deux points voisins de $\mathbb{Z}^d$. Le réseau $(\mathbb{Z}^d, \mathbb{E}^d)$ est le graphe dont $\mathbb{Z}^d$ est l'ensemble des sommets et $\mathbb{E}^d$ est l'ensemble des arêtes. Soit $A$ un sous-ensemble de $\mathbb{R}^d$, nous disons que $e = \langle x,y\rangle$ est incluse dans $A$ si le segment ouvert $]x,y[$ est inclus dans $A$.
 
-\paragraph{Les boîtes $\Lambda(\ell,h)$.} Nous notons $\Lambda(\ell,h)$ le sous graphe de $(\mathbb{Z}^d,\mathbb{E}^d)$ à l'intérieur du rectangle $[-\ell,\ell]\times[-h,h]$. Nous notons aussi $T(\ell,h)$ le bord supérieur de $\Lambda(\ell,h)$, i.e. le segment $[-\ell,\ell]\times(0,h)$. Nous notons aussi $B(\ell,h)$ le bord inférieur de $\Lambda(\ell,h)$, i.e. $[-\ell,\ell]\times(0,-h)$. Les deux bords verticaux de la boîte $\Lambda(\ell,h)$ sont notés $V(\ell,h)$.
+\paragraph{Les boîtes $\Lambda(\ell,h)$.} Nous notons $\Lambda(\ell,h)$ le sous graphe de $(\mathbb{Z}^d,\mathbb{E}^d)$ à l'inté\-rieur du rectangle $[-\ell,\ell]\times[-h,h]$. Nous notons aussi $T(\ell,h)$ le bord supérieur de $\Lambda(\ell,h)$, i.e. le segment $[-\ell,\ell]\times(0,h)$. Nous notons $B(\ell,h)$ le bord inférieur de $\Lambda(\ell,h)$, i.e. $[-\ell,\ell]\times(0,-h)$. Les deux bords verticaux de la boîte $\Lambda(\ell,h)$ sont notés $V(\ell,h)$.
 \begin{figure}[h]
 \center
 \begin{tikzpicture}
@@ -58,157 +56,166 @@ $$
 $$
 Les configurations $\omega^e,\omega_e$ sont obtenues à partir de $\omega$ en ouvrant ou fermant l'arête $e$.
 \paragraph{Les chemins.} Soient $x$ et $y$ deux sommets dans $\mathbb{Z}^d$, un chemin entre $x$ et $y$ est une suite $x_0,e_0, x_1,e_1,\dots, e_n,x_{n+1}$ de sommets $x_i$ et d'arêtes $e_i$ distincts où $x_0=x$ et $x_{n+1}=y$ et $e_i$ est l'arête joignant $x_i$ à $x_{i+1}$. 
-Nous disons que $x$ et $y$ sont reliés par un chemin ouvert dans la configuration $\omega$, noté $\smash{x\overset{\omega}{\longleftrightarrow }y}$, s'il existe un chemin qui relie $x,y$ tel que toute arête de ce chemin est ouverte dans la configuration $\omega$. Nous notons aussi $\smash{x\overset{\omega}{\nlongleftrightarrow} y}$ l'événement complémentaire. Soit $A$ un sous-ensemble de $\Lambda(l,h)$, nous notons $\smash{x\overset{A}{\longleftrightarrow} y}$ s'il existe un chemin ouvert entre $x$ et $y$ dont les arêtes sont incluses dans $A$.
-
-Soient $A,B$ deux sous-graphes de $(\mathbb{Z}^d,\mathbb{E}^d)$, nous disons que $A$ est connecté à $B$ dans la configuration $\omega$, que nous notons $\smash{A\overset{\omega}{\longleftrightarrow} B}$, s'il existe un chemin entre un sommet de $A$ et un sommet de $B$. Dans ce mémoire, nous étudions en particulier les chemins entre un sommet de $T(l,h)$ et un sommet de $B(l,h)$.
-\paragraph{La probabilité de percolation.} Soit un réel $p\in [0,1]$. Sur l'espace $\Omega$, nous considérons la tribu cylindrique $\mathcal{F}$. Nous considérons la probabilité produit $$P_p = (p\delta_1 +(1-p)\delta_0)^{\otimes\mathbb{E}^d}.$$ Intuitivement, une configuration s'obtient en fermant indépendamment chaque arête du réseau $\mathbb{Z}^d$ avec une probabilité $1-p$. Pour $A$ un sous-ensemble de $(\mathbb{Z}^d,\mathbb{E}^d)$, $\Omega_{|A}$ est l'ensemble de configurations restreintes dans $A$.
+Nous disons que $x$ et $y$ sont reliés par un chemin ouvert dans la configuration $\omega$, noté $\smash{x\overset{\omega}{\longleftrightarrow }y}$, s'il existe un chemin qui relie $x$ et $y$ tel que toute arête de ce chemin est ouverte dans la configuration $\omega$. Nous notons $\smash{x\overset{\omega}{\longarrownot\longleftrightarrow} y}$ l'événement complémentaire. Soit $A$ un sous-ensemble de $\Lambda(l,h)$, nous notons $\smash{x\overset{A}{\longleftrightarrow} y}$ s'il existe un chemin ouvert entre $x$ et $y$ dont les arêtes sont incluses dans $A$.
+Soient $A,B$ deux sous-graphes de $(\mathbb{Z}^d,\mathbb{E}^d)$, nous disons que $A$ est connecté à $B$ dans la configuration $\omega$, ce que nous notons $\smash{A\overset{\omega}{\longleftrightarrow} B}$, s'il existe un chemin ouvert entre un sommet de $A$ et un sommet de $B$.
+\paragraph{La probabilité de percolation.} Soit un réel $p\in [0,1]$. Sur l'espace $\Omega$, nous considérons la tribu cylindrique $\mathcal{F}$. Nous considérons la probabilité produit $$P_p = (p\delta_1 +(1-p)\delta_0)^{\otimes\mathbb{E}^d}.$$ Intuitivement, une configuration s'obtient en fermant indépendamment cha\-que arête du réseau $\mathbb{Z}^d$ avec une probabilité $1-p$. Pour $A$ un sous-ensemble de $(\mathbb{Z}^d,\mathbb{E}^d)$, $\Omega_{|A}$ est l'ensemble des configurations restreintes dans $A$.
 \subsection{Le processus de percolation dynamique}
-Nous considérons le processus de percolation dynamique dans une boîte $\Lambda$. Il s'agit d'une suite de triplet $(X_t,E_t,B_t)_{t\in \mathbb{N}}$ dont $(X_t)_{t\in\mathbb{N}}$ est un processus à valeurs dans $\Omega_{|\Lambda}$, $(E_t)_{t\in\mathbb{N}}$ est une suite d'arêtes dans la boîte $\Lambda$ et $(B_t)_{t\in \mathbb{N}^*}$ est une suite de variables aléatoire à valeurs dans $\{0,1\}$. Décrivons maintenant le dynamique du processus. La suite $(E_t)_{t\in\mathbb{N}}$ est une suite d'arêtes indépendantes dont chaque $E_t$ suit la loi uniforme sur l'ensemble des arêtes à l'intérieur de $\Lambda$. La suite $(B_t)_{t\in\mathbb{N}}$ est une suite indépendante de variable de Bernoulli de paramètre $p$. Le processus $(X_t)_{t\in\mathbb{N}}$ se définit par une récurrence sur $t$, plus précisément, nous partons d'une configuration initiale $X_0$. A l'instant $t\geqslant 1$, nous changeons l'état de l'arête $E_t$ en $B_t$, i.e.
+Nous considérons le processus de percolation dynamique dans une boîte $\Lambda$. Il s'agit d'une suite de triplets $(X_t,E_t,B_t)_{t\in \mathbb{N}}$, où $(X_t)_{t\in\mathbb{N}}$ est un processus à valeurs dans $\Omega_{|\Lambda}$, $(E_t)_{t\in\mathbb{N}}$ est une suite d'arêtes dans la boîte $\Lambda$ et $(B_t)_{t\in \mathbb{N}^*}$ est une suite de variables aléatoires à valeurs dans $\{0,1\}$. Décrivons maintenant la dynamique du processus. La suite $(E_t)_{t\in\mathbb{N}}$ est une suite indépendante d'arêtes aléatoires et chaque $E_t$ suit la loi uniforme sur l'ensemble des arêtes à l'intérieur de $\Lambda$. La suite $(B_t)_{t\in\mathbb{N}}$ est une suite indépendante de variables de Bernoulli de paramètre $p$. Le processus $(X_t)_{t\in\mathbb{N}}$ se définit par récurrence sur $t$, comme suit. Nous partons d'une configuration initiale $X_0$. A l'instant $t\geqslant 1$, nous changeons l'état de l'arête $E_t$ en $B_t$, i.e, nous définissons
 $$ X_t(e) = \left\lbrace \begin{array}{cc}
 X_{t-1}(e) & \text{si }e\neq E_t \\
 B_{t} & \text{si } e = E_t
 \end{array} \right..
 $$ 
 
-\paragraph{La probabilité de percolation dynamique.}
-Nous notons $\bar{\Omega} = \Omega_{|\Lambda}^\mathbb{N}\times \Lambda^\mathbb{N}\times\{0,1\}^\mathbb{N}$ l'espace de configuration de percolation dynamique et $\bar{\mathcal{F}}$ la filtration naturelle associée. Nous notons $P_X$ la loi marginale du processus $(X_t)_{t\in\mathbb{N}}$ dans le couple $(X_t,e_t,b_t)_{t\in\mathbb{N}}$.
+\paragraph{L'espace de probabilité de la percolation dynamique.}
+Nous notons $$\overline{\Omega} = \Omega_{|\Lambda}^\mathbb{N}\times \Lambda^\mathbb{N}\times\{0,1\}^\mathbb{N}$$ l'espace de configuration de la percolation dynamique et $\overline{\mathcal{F}}$ la filtration naturelle associée. Nous notons $P_X$ la loi marginale du processus $(X_t)_{t\in\mathbb{N}}$ dans le triplet $(X_t,E_t,B_t)_{t\in\mathbb{N}}$.
 \subsection{Les chemins espace-temps}
-Nous introduisons les chemins espace-temps définis avec un processus de percolation dynamique $X$. Un chemin espace-temps s'obtient en prolongeant un chemin dans le temps. Plus précisément, nous définissons une relation d'équivalence $\overset{X}{\longleftrightarrow}$ sur les couples $(e,t) \in (\mathbb{E}^d,\mathbb{N})$ par, soient $e = \langle a,b\rangle,f = \langle c,d\rangle \in \mathbb{E}^d$ deux arêtes, et $s,t\geqslant 0$ deux instants,
+Nous introduisons d'abord les chemins espace-temps qui généralise les chemins. Un chemin espace temps est une suite de couples distincts $(e_i,t_i)_{i\in\mathbb{N}}$ qui vérifie la condition suivante, pour tout $i$ entier naturel nous avons soit $e_i = e_{i+1}$, soit $t_i = t_{i+1}\text{ et que }e_i \text{ et } e_{i+1} \text{ admet une extrémité en commun}$.
+Nous introduisons maintenant les chemins espace-temps ouverts définis associés à un processus de percolation dynamique $X$. Nous définissons une relation $\smash{\overset{X}{\longleftrightarrow}}$ sur les couples $(e,t) \in (\mathbb{E}^d,\mathbb{N})$ de la manière suivante: soient $e = \langle a,b\rangle,f = \langle c,d\rangle \in \mathbb{E}^d$ deux arêtes, et $s,t\geqslant 0$ deux instants, nous posons
 \begin{align*}
-(e,t) \overset{X}{\longleftrightarrow} (f,t) &\text{ si }
+(e,t) \overset{X}{\longleftrightarrow} (f,t) &\quad\text{ si }
  a\overset{X_t}{\longleftrightarrow} c, X_t(e) = 1, X_t(f)=1\\
-(e,s) \overset{X}{\longleftrightarrow} (e,t) &\text{ si } \forall r \in [s\wedge t,s\vee t]\quad X_r(r)  = 1.
+(e,s) \overset{X}{\longleftrightarrow} (e,t) &\quad\text{ si } \forall r \in [s\wedge t,s\vee t]\quad X_r(r)  = 1.
 \end{align*} 
-Nous généralisons ensuite cette relation d'équivalence sur les sommets de $\mathbb{Z}^d$ par, soit $x,y\in \mathbb{Z}^d, s,t\in \mathbb{N}$,
-$$ (x,s) \overset{X}{\longleftrightarrow} (y,t) \text{ si }
-\exists e\text{ d'une extrémité }x, f\text{ d'une extrémité }y\quad
+Nous considérons ensuite la relation d'équivalence sur les sommets de $\mathbb{Z}^d$ définie de la manière suivante: soient $x,y\in \mathbb{Z}^d, s,t\in \mathbb{N}$, nous posons
+\begin{multline*}(x,s) \overset{X}{\longleftrightarrow} (y,t) \quad\text{ si}\quad\text{il existe une arête }
+ e\text{ ayant }x\text{ pour extrémité},\\ \text{et une arête }f\text{ ayant }y\text{ pour extrémité }y \text{ telle que }
 (e,s)\overset{X}{\longleftrightarrow} (f,t).
-$$
-Nous disons qu'il existe un chemin espace-temps entre $(x,s)$ et $(y,t)$ si $\smash{(x,s) \overset{X}{\longleftrightarrow} (y,t)}$.
+\end{multline*}
+Finalement, nous disons qu'il existe un chemin espace-temps ouvert entre $(x,s)$ et $(y,t)$ si $\smash{(x,s) \overset{X}{\longleftrightarrow} (y,t)}$.
 
-\subsection{Les interfaces par un couplage}
+\subsection{Les interfaces via un couplage}
 Nous introduisons un couplage qui nous permet de définir les interfaces entre le haut et le bas. 
-
 Nous définissons le processus $(Y_t)_{t\in\mathbb{N}^*}$ à valeurs dans $\{0,1\}^{\mathbb{E}^d}$ par la formule suivante:
 $$ Y_t(e) = \left\lbrace \begin{array}{cl}
 X_t(e) & \text{si }e \neq E_t\\
-0 &\text{si } e = E_t\text{ et } B_t = 0\\
-1 & \text{si } e=E_t, B_t = 1 \text{ et } T\overset{Y_{t-1}^{E_t}}{\nlongleftrightarrow} B\\
+0 &\text{si } e = E_t\text{ et } B_t = 0\phantom{T\overset{Y_{t-1}^{E_t}}{\longarrownot\longleftrightarrow} B}\\
+1 & \text{si } e=E_t, B_t = 1 \text{ et } T\overset{Y_{t-1}^{E_t}}{\longarrownot\longleftrightarrow} B\\
 0 & \text{si } e=E_t, B_t = 1 \text{ et } T\overset{Y_{t-1}^{E_t}}{\longleftrightarrow} B
 \end{array} \right.
 $$
-Le processus $Y$ est un processus de percolation dynamique conditionné par l'événement $\{T\nlongleftrightarrow B\}$. Lorsque nous essayons de ouvrir une arête $e$ fermée de la boîte $\Lambda$ à un instant, nous vérifions d'abord si cette modification induit une connexion par une un chemin ouvert entre le haut et le bas dans le processus $Y$. Si c'est le cas, $e$ reste fermée dans le processus $Y$ mais s'ouvre dans le processus $X$. Or la fermeture d'une arête ne peut pas créer une connexion entre le haut et le bas dans le processus $Y$, Les deux processus $X$ et $Y$ se comportent identiquement lorsque nous essayons de fermer une arête.
+Le processus $Y$ est un processus de percolation dynamique conditionné par l'événement $\{T\longarrownot\longleftrightarrow B\}$. Nous notons $P_Y$ la loi de ce processus et $P$ la loi du couple $(X,Y)$. Lorsque nous essayons d'ouvrir une arête $e$ fermée de la boîte $\Lambda$ à un instant, nous vérifions d'abord si cette modification induit une connexion par un chemin ouvert entre le haut et le bas de la boîte dans le processus $Y$. Si c'est le cas, l'arête $e$ reste fermée dans le processus $Y$ mais s'ouvre dans le processus $X$. Par contre, la fermeture d'une arête ne peut pas créer une connexion entre le haut et le bas dans le processus $Y$, et les deux processus $X$ et $Y$ se comportent identiquement lorsque nous essayons de fermer une arête.
 Nous proposons maintenant une définition de l'interface à partir du couplage précédent.
-\begin{defi} Soit $X_t$ le processus de percolation dynamique et $Y_t$ le processus de percolation dynamique conditionné par $\{T\nlongleftrightarrow B\}$, l'interface à instant $t$ entre $T$ et $B$ que nous notons $\mathcal{I}_t$ est l'ensemble des arêtes de $\Lambda$ qui sont différentes entre les configurations $X_t$ et $Y_t$,i.e.
-$$ \mathcal{I}_t = \big\{e\in\Lambda \,|\, X_t(e) \neq Y_t(e)\big\}
+\begin{defi} Soit $X_t$ le processus de percolation dynamique et $Y_t$ le processus de percolation dynamique conditionné par $\{T\longarrownot\longleftrightarrow B\}$. L'interface à l'instant $t$ entre $T$ et $B$, que nous notons $\mathcal{I}_t$, est l'ensemble des arêtes de $\Lambda$ qui sont différentes dans les configurations $X_t$ et $Y_t$,i.e,
+$$ \mathcal{I}_t = \big\{\,e\in\Lambda : X_t(e) \neq Y_t(e)\,\big\}
 $$
 \end{defi}
-Les arêtes de $\mathcal{I}_t$ sont fermées dans la configuration $Y_t$ mais ouvertes dans $X_t$ car la configuration $X_t$ domine stochastiquement $Y_t$.
-Nous définissons aussi $\mathcal{P}_t$ l'ensemble des arêtes pivot dans $\Lambda$ pour l'événement $\{T\longleftrightarrow B\}$ dans le processus $(Y_t)_{t\in \mathbb{N}}$. 
-\begin{defi} L'ensemble $\mathcal{P}_t$ est l'ensemble des arêtes dans $\Lambda$ dont ouverture induit l'événement $\{T\longleftrightarrow B\}$ dans le processus $Y_t$, i.e.
-$$\mathcal{P}_t = \big\{ e\in\Lambda \,|\, T\overset{Y_t^e}{\longleftrightarrow} B\big\}
+Les arêtes de $\mathcal{I}_t$ sont fermées dans la configuration $Y_t$ mais ouvertes dans $X_t$, car la configuration $X_t$ est au-dessus de la configuration $Y_t$.
+Nous définissons aussi l'ensemble $\mathcal{P}_t$ des arêtes pivot dans $\Lambda$ pour l'événement $\{T\longleftrightarrow B\}$ dans la configuration $Y_t$. 
+\begin{defi} L'ensemble $\mathcal{P}_t$ est l'ensemble des arêtes dans $\Lambda$ dont l'ouverture induit l'événement $\{T\longleftrightarrow B\}$ dans la configuration $Y_t$, i.e,
+$$\mathcal{P}_t = \big\{ \,e\in\Lambda : T\overset{Y_t^e}{\longleftrightarrow} B\,\big\}
 $$
 \end{defi}
 \section{La construction d'un chemin espace-temps}
-Nous allons énoncer une première proposition qui permet de construire un chemin espace temps dont nous avons besoin pour la suite de notre étude.
+Nous allons énoncer une première proposition qui permet de construire un chemin espace -temps dont nous avons besoin pour la suite de notre étude.
 
-\begin{prop} \label{stc}Soient $0<s<t$ deux instants et $e\in \mathcal{P}_t$ et $f \in \mathcal{P}_s$. Il existe un chemin espace-temps monotone en temps et fermé dans le processus $Y$ qui relie $(e,t)$ à $(f,s)$. De plus, si une arête $e$ est visitée à deux instants différents $u$ et $v$, il existe un instant $w\in ]u,v[$ où $e$ est ouverte à $w$.
+\begin{prop} \label{stc}Soient $0<s<t$ deux instants et $e$ une arête de $ \mathcal{P}_t$ et $f$ une arête de $\mathcal{P}_s$. Nous supposons que $\mathcal{P}_r$ est non vide à tout instant $r$ entre $s$ et $t$. Il existe un chemin espace-temps monotone en temps et fermé dans le processus $Y$ qui relie $(e,t)$ à $(f,s)$. De plus, si une arête $e$ est visitée à deux instants différents $u$ et $v$, alors $e$ est ouverte à un instant $w$ dans l'intervalle $]u,v[$.
 \end{prop}
 
 \begin{proof}
-Nous remarquons d'abord qu'à l'instant $t$ donné, il existe un chemin fermé qui relie tous les arêtes pivot de cet instant. Nous considérons $\theta(t)$ le dernier instant où il existe une arête de $\mathcal{P}_t$ qui devient pivot, i.e.,
-$$ \theta(t) = \inf\big\{ \,r\leqslant t, \exists e_1 \in \mathcal{P}_t, e_1 \text{ devient pivot à l'instat } r,e_1\text{ pivot sur }[r,t]\, \big\}.
-$$
-Nous montrons que $\theta(t)< t$. En effet, si à l'instant $t$, il y a une arête qui se ferme, alors il n'y a pas d'arête pivot créé à l'instant $t$, donc les arêtes de $\mathcal{P}_t$ sont aussi pivot à l'instant $t-1$. Dans le cas contraire, si une arête s'ouvre à l'instant $t$. Nous considérons une arête $\varepsilon$ de $\mathcal{P}_{t-1}$, il existe un chemin ouvert passant par $\varepsilon$ qui relie le haut et le bas de $\Lambda$ à l'instant $t-1$. Or l'ouverture d'une arête quelconque ne modifie pas ce chemin ouvert, $\varepsilon$ est toujours pivot à l'instant $t$. Nous avons donc trouvé une arête qui est devenue pivot avant l'instant $t$. D'où $\theta(t)< t$.
+Nous remarquons d'abord qu'à l'instant $t$, il existe un chemin fermé qui relie toutes les arêtes pivot. Nous considérons $\theta(t)$ le plus ancien instant où il existe une arête de $\mathcal{P}_t$ qui devient pivot, i.e.,
+\begin{multline*} \theta(t) = \inf\big\{ \,r\leqslant t, \exists e_1 \in \mathcal{P}_t, e_1 \text{ devient pivot à l'instat } r \\\text{ et }e_1\text{ reste pivot entre }s\text{ et }t \big\}.
+\end{multline*}
+Nous montrons que $\theta(t)< t$. En effet, si à l'instant $t$, il y a une arête qui se ferme, alors il n'y a pas d'arête pivot créée à l'instant $t$, donc les arêtes de $\mathcal{P}_t$ sont aussi pivot à l'instant $t-1$. Dans le cas contraire, supposons qu'une arête s'ouvre à l'instant $t$. Nous considérons une arête $\varepsilon$ de $\mathcal{P}_{t-1}$, il existe un chemin passant par $\varepsilon$ relie le haut et le bas de $\Lambda$ à l'instant $t-1$, dont toutes les arêtes, hormis $\varepsilon$ sont ouvertes. Or l'ouverture d'une arête autre que $\varepsilon$ ne modifie pas ce chemin ouvert, l'arête $\varepsilon$ est toujours pivot à l'instant $t$. Nous avons donc trouvé une arête qui est devenue pivot avant l'instant $t$. D'où $\theta(t)< t$.
 
-Si $\theta(t)\leqslant s$, le chemin $(e,t),(e_1,t),(e_1,s)$ est un chemin espace-temps voulu. Sinon, $\theta(t)> s$, nous considérons l'arête-temps $(e_1,\theta(t))\in \mathcal{P}_{\theta(t)}$ qui est reliée à $(e,t)$ par le chemin $(e,t),(e_1,t),(e_1,\theta(t))$. Nous devons maintenant montrer le résultat voulu avec $(e_1,\theta(t))$ à la place de $(e,t)$. Nous répétons le procédure précédent et nous construisons une suite décroissante d'instants $(t,\theta(t),\theta(\theta(t)),\dots)$ et une suite d'arête $(e,e_1,e_2,\dots)$. Or tout instant de la suite est supérieur à $s$, la suite est forcément finie. Donc il existe un $k\in\mathbb{N}$ tel que $\theta^k(t)\leqslant s$. Or pour tout $0\leqslant i < k$, l'arête $(e_i,\theta^i(t))$ est reliée à $(e_{i+1},\theta^{i+1}(t))$ par un chemin espace-temps fermé. Nous obtenons un chemin espace-temps fermé qui relie $(e,t)$ à $(e_k,\theta^k(t))$ en concaténant les bouts obtenus à chaque étape. Par construction, ce chemin est monotone en temps. 
+Si $\theta(t)\leqslant s$, le chemin $(e,t),(e_1,t),(e_1,s),(f,s)$ est un chemin espace-temps qui répond à la question. Supposons, $\theta(t)> s$. Nous considérons l'arête-temps $(e_1,\theta(t))\in \mathcal{P}_{\theta(t)}$ qui est reliée à $(e,t)$ par le chemin $(e,t),(e_1,t),(e_1,\theta(t))$. Nous devons maintenant montrer le résultat voulu avec $(e_1,\theta(t))$ à la place de $(e,t)$. Nous répétons la procédure précédente et nous construisons une suite décroissante d'instants $(t,\theta(t),\theta(\theta(t)),\dots)$ et une suite d'arêtes $(e,e_1,e_2,\dots)$. Or tout instant de la suite est supérieur à $s$, la suite est forcément finie. Donc il existe un $k\in\mathbb{N}$ tel que $\theta^k(t)\leqslant s$. Or pour tout $0\leqslant i < k$, l'arête $(e_i,\theta^i(t))$ est reliée à $(e_{i+1},\theta^{i+1}(t))$ par un chemin espace-temps fermé décroissant en temps. Nous obtenons un chemin espace-temps fermé qui relie $(e,t)$ à $(e_k,\theta^k(t))$ en concaténant les bouts obtenus à chaque étape. Par construction, ce chemin est monotone en temps. 
 
-Pour obtenir le deuxième point nous faisons un procédure de modification par récurrence. Nous notons le chemin précédent par $(e_i,\theta^i(t))_{0\leqslant i \leqslant k}$ avec $e_0 = e,t_0 = t$ et $e_k=f, t_k = s$. Nous commençons avec $e_0$. A l'étape $e_i$, nous distinguons différents cas: 
+Pour prouver le deuxième point de la proposition, nous faisons un procédure de modification par récurrence. Nous notons le chemin obtenu à la fin de la procédure précédente par $(e_i,\theta^i(t))_{0\leqslant i \leqslant k}$ avec $e_0 = e,t_0 = t$ et $e_k=f, t_k = s$. Nous commençons avec l'arête $e_0$. Lorsque nous arrivons à l'arête $e_i$, nous distinguons différents cas: 
 \begin{itemize}[leftmargin = 0.4cm]
-\item Si pour toute indice $j$ telle que $i<j\leqslant k$ nous avons $e_j\neq e_i$, nous passons $e_i$ et nous recommençons la modification avec $e_{i+1}$.
-\item S'il existe $i<j\leqslant k$ une indice telle que $e_j=e_i$ mais $e_i$ s'ouvre entre $\theta^j(t)$ et $\theta^i(t)$, nous passons $e_i$ et nous recommençons la modification avec $e_{i+1}$.
-\item S'il existe $i<j\leqslant k$ une indice telle que $e_j=e_i$ et que $e_i$ reste fermée entre $\theta^j(t)$ et $\theta^i(t)$, nous enlevons les arêtes entre $i$ et $j$ et nous relions directement $e_i$ et $e_j$ par un changement de temps et nous recommençons avec $e_j$. 
+\item Si pour tout indice $j$ tel que $i<j\leqslant k$ nous avons $e_j\neq e_i$, nous passons $e_i$ et nous recommençons la modification avec $e_{i+1}$.
+\item S'il existe $i<j\leqslant k$ un indice tel que $e_j=e_i$ et que $e_i$ s'ouvre entre $\theta^j(t)$ et $\theta^i(t)$, nous passons $e_i$ et nous recommençons la modification avec $e_{i+1}$.
+\item S'il existe $i<j\leqslant k$ un indice tel que $e_j=e_i$ mais que $e_i$ reste fermée entre $\theta^j(t)$ et $\theta^i(t)$, nous enlevons les arêtes entre $i$ et $j$, nous relions directement $e_i$ et $e_j$ par un changement de temps et nous recommençons avec $e_j$. 
 \end{itemize}
-Or la longueur du chemin diminue à chaque modification, ce procédure se termine. De plus, ce procédure ne modifie pas les l'ordre de $\theta^i$, la monotonie est conservée.
+Or la longueur du chemin diminue à chaque modification et donc procédure se termine. Comme cette procédure ne modifie pas l'ordre des $\theta^i$, la monotonie est conservée.
 \end{proof}
 
 \section{La comparaison entre deux processus}
-Nous étudions maintenant le chemin espace-temps dans les deux processus. En particulier, nous comparons les arêtes fermées du chemin.
-
-Soit $(e,t)$ une arête-temps fermée dans le processus $Y$. Dans le processus $X$, vu qu'il n'y a pas de conditionnement, elle peut être ouverte ou fermée à l'instant $t$. Si elle est ouverte, par la définition de l'interface, $e\in \mathcal{I}_t$. Dans le cas contraire, elle est fermée dans le processus de percolation standard, nous avons $P(X_t(e) = 0) = 1-p$. Si $e$ se ferme dans $Y$ à un instant, elle se ferme aussi dans $X$. Par contre, si $e$ est pivot dans $Y$, lors d'une arrivée du processus d'ouverture, elle s'ouvre dans $X$ mais pas dans $Y$. Maintenant, regardons le chemin espace-temps obtenu dans la proposition \ref{stc}. Or il existe des arêtes pivot dans le chemin, ce chemin n'est pas forcément fermé dans le processus $X$. Par contre, nous pouvons considérer le dernier instant de fermeture avant le passage sur une arête. Plus précisément, notons $(e_i,t_i)_{1\leqslant i \leqslant n}$ le chemin espace-temps. Nous considérons $\tilde{t_i}$ le dernier instant d'arrivée du processus de fermeture de l'arête $e_i$ avant $t_i$, i.e.
-$$ \tilde{t}_i = \sup \big\{ t\leqslant t_i\,|\, E_{t} = e_i, B_t = 0\big\}
+Nous étudions maintenant le chemin espace-temps dans les deux processus. En particulier, nous comparons les états des arêtes fermées du chemin dans chaque processus.
+Soit $(e,t)$ une arête-temps fermée dans le processus $Y$. Dans le processus $X$, vu qu'il n'y a pas de conditionnement, elle peut être ouverte ou fermée à l'instant $t$. Si elle est ouverte, par la définition de l'interface, elle est dans $ \mathcal{I}_t$. Dans le cas contraire, elle est aussi fermée dans la configuration $X_t$. Si $e$ se ferme dans $Y$ à un instant, elle se ferme aussi dans $X$ au même instant. Par contre, si $e$ est pivot dans $Y$, elle peut s'ouvrir dans $X$ mais rester fermée dans $Y$. Maintenant, regardons le chemin espace-temps obtenu dans la proposition \ref{stc}. Comme il existe des arêtes pivot dans ce chemin, celles-ci ne sont pas forcément fermé dans le processus $X$. Par contre, nous pouvons considérer le dernier instant de fermeture avant le passage sur une arête. Plus précisément, notons $(e_i,t_i)_{1\leqslant i \leqslant n}$ le chemin espace-temps. Nous considérons $\tilde{t_i}$ le dernier instant d'arrivée du processus de fermeture de l'arête $e_i$ avant $t_i$, i.e,
+$$ \widetilde{t}_i = \sup \big\{\, t\leqslant t_i: E_{t} = e_i, B_t = 0\,\big\}
 $$
-Nous allons distinguer trois cas. Dans le premier cas $\tilde{t_i}\geqslant s$, l'arête $e_i$ est fermée à $t_i$ car il y a une fermeture après l'instant $s$. Dans le deuxième cas $\tilde{t_i}< s$ et $e_i$ est fermé à l'instant $s$ dans les deux processus. Dans le dernier cas, $\tilde{t_i}< s$ et à l'instant $s$, $e_i$ est fermée dans $Y$ mais ouverte dans $X$, nous remarquons que $e_i \in \mathcal{I}_s$. Nous en déduisons la proposition suivante:
+Nous allons distinguer trois cas. Dans le premier cas $\widetilde{t_i}\geqslant s$, l'arête $e_i$ est fermée à $t_i$ car il y a une fermeture après l'instant $s$ et pas d'ouverture après cette fermeture. Dans le deuxième cas $\widetilde{t_i}< s$ et $e_i$ est fermé à l'instant $s$ dans les deux processus. Dans le dernier cas, $\widetilde{t_i}< s$ et à l'instant $s$, $e_i$ est fermée dans $Y$ mais ouverte dans $X$, nous remarquons qu'alors $e_i \in \mathcal{I}_s$. Nous en déduisons la proposition suivante:
 
-\begin{prop}\label{couple} Soient $s<t$ deux instants et $\gamma$ un chemin espace-temps fermé entre $s$ et $t$ dans le processus conditionné $Y$, une arête $e$ de $\gamma$ vérifie une des trois propriétés suivantes:
-\begin{itemize}[leftmargin = 0.9cm]
-\item[(A)] $e\in \mathcal{I}_s$;
-\item[(B)] $e$ est fermée à l'instant $s$ dans le processus de percolation dynamique $X$;
-\item[(C)] Il existe un instant $r\in ]s,t]$ où il y a un instant d'arrivée du processus de fermeture, i.e. il existe un instant $r$ tel que $E_r = e$ et $B_r = 0$.
+\begin{prop}\label{couple} Soient $s<t$ deux instants et $\Gamma$ un chemin aléatoire espace-temps fermé entre $s$ et $t$ dans le processus conditionné $Y$. Toute arête $e$ de $\Gamma$ vérifie une des trois propriétés suivantes:
+\begin{itemize}[leftmargin = 1cm]
+\item[(i)] Il existe un instant d'arrivée $r\in ]s,t]$ du processus de fermeture en $e$, i.e., il existe un instant $r\in]s,t]$ tel que $E_r = e$ et $B_r = 0$;
+\item[(ii)] $e$ est fermée à l'instant $s$ dans le processus $X$ à l'instant $s$;
+\item[(iii)] $e$ est dans l'interface à l'instant $s$.
+
 \end{itemize}
 \end{prop}
 
 
 \section{Une inégalité de type BK}
-Nous allons obtenir une inégalité qui nous permet de comparer un chemin espace temps dans les deux configuration. Nous reprenons les notation de la proposition \ref{couple} et pour un chemin espace-temps $\gamma$ fixé nous notons $\mathcal{E},\tilde{\mathcal{E}}$ et $\mathcal{D}$ les ensembles de configurations dans $\Lambda$ entre $s$ et $t$ suivants,
+Nous allons montrer une inégalité qui nous permettra de comparer un chemin espace-temps dans les deux processus $X$ et $Y$. Nous reprenons les notations de la proposition \ref{couple} et nous définissons l'événement $$ \rm{Fermeture}(e,]s,t]) = \big\{\, \exists r \in ]s,t] \quad E_r = e,B_r = 0\,\big\}.
+$$
+Nous définissons la projection en espace d'un chemin espace-temps comme suit. Soit $\gamma = (e_i,t_i)_{1\leqslant i \leqslant n}$ un chemin espace temps, la projection en espace de $\gamma$, que nous notons $\rm{Espace}(\gamma)$, est l'ensemble d'arêtes obtenu en supprimant les deuxièmes arêtes des changements de temps dans la suite $(e_i)_{1\leqslant i \leqslant n}$,i.e.
+$$\mathrm{Espace}(\gamma) = \{\,e\in \gamma\,\} \setminus \{\,e_i\in \gamma, e_{i-1} = e_i\,\}
+$$
+Soit $x,y$ deux sommets de $\mathbb{Z}^d$, notons $\mathcal{E}_Z(x,y),\widetilde{\mathcal{E}}(x,y)$ et $\mathcal{D}$ les ensembles de configurations dans $\Lambda$ entre $s$ et $t$ suivants:
 \begin{align*}
-\mathcal{E}(\gamma)&=\{\,\gamma \text{ fermé sur l'intervalle de temps }[s ,t]\text{ et disjoint de }\mathcal{P}_s\cup \mathcal{I}_s \text{ à l'instant }s\,\}\\
-\tilde{\mathcal{E}}(\gamma)&=\{\,\text{toute arête de }\gamma\text{ vérifie } (B)\text{ ou }(C) \,\}\\
-\mathcal{D}& = \{\,T\nlongleftrightarrow B \text{ entre }s \text{ et }t\text{ dans le processus }X\,\}
+\mathcal{E}_X(x,y,s,t)&=\left\lbrace\begin{array}{c}\exists \gamma
+\text{ un chemin espace-temps fermé dans }X\\\text{ qui relie }(x,s),(y,t)\text{ sur l'intervalle de temps } [s ,t]\\\text{ et disjoint de }\mathcal{P}_s\cup \mathcal{I}_s \text{ à l'instant }s
+\end{array} \right\rbrace\\
+\widetilde{\mathcal{E}}(x,y,s,t)&=\left\lbrace \begin{array}{c}
+ \exists\gamma\text{ un chemin espace-temps qui relie } (x,s),(y,t)\\ \text{ tel que }\forall e \in \mathrm{Espace}(\gamma), X_s(e) = 0 \text{ ou } \rm{Fermeture}(e,]s,t]) 
+\end{array}\right\rbrace\\
+\mathcal{D}(s,t)& = \{\,T\longarrownot\longleftrightarrow B \text{ entre }s \text{ et }t\text{ dans le processus }X\,\}
 \end{align*}
+De la même manière que $\mathcal{E}_X(x,y,s,t)$ nous définissons l'ensemble $\mathcal{E}_Y(x,y,s,t)$.
 Nous montrons l'inégalité suivante:
-\begin{prop} \label{BK'}
-$P_X(\mathcal{E}\cap\mathcal{D})\leqslant P_X(\tilde{\mathcal{E}})P_X(\mathcal{D})$
+\begin{prop} \label{BK'} Pour tout sommets $x,y$ et instants $s<t$, nous avons
+$$P\left(\mathcal{E}_X(x,y,s,t)\cap\mathcal{D}(s,t)\right)\leqslant P\left(\widetilde{\mathcal{E}}(x,y,s,t)\right)P\left(\mathcal{D}(s,t)\right).$$
 \end{prop}
 \begin{proof}
-Nous utilisons le couplage et nous considérons l'événement $\mathcal{E}$. Or le processus $Y$ est le processus $X$ conditionné par $\mathcal{D}$, nous obtenons:
-$$P_Y(\mathcal{E}) = P_X(\mathcal{E}|\mathcal{D}) =  \frac{P_X(\mathcal{E}\cap\mathcal{D})}{P_X(\mathcal{D})}.
+Nous utilisons le couplage et nous considérons l'événement $\mathcal{E}$. Comme le processus $Y$ est le processus $X$ conditionné par $\mathcal{D}$, nous obtenons:
+$$P(\mathcal{E}_Y(x,y,s,t)) = P\left(\mathcal{E}_X(x,y,s,t)\,\big|\,\mathcal{D}(s,t)\right) =  \frac{P\left(\mathcal{E}_X(x,y,s,t)\cap\mathcal{D}(s,t)\right)}{P(\mathcal{D}(s,t))}.
 $$
-Par la proposition \ref{couple}, or les arêtes du chemin espace temps sont disjointes de $\mathcal{P}_s$, elles vérifient donc $(B)$ ou $(C)$. Donc l'événement $\tilde{\mathcal{E}}$ est réalisé dans le processus $X$. Nous obtenons
-$$ P_Y(\mathcal{E})\leqslant P_X(\tilde{\mathcal{E}}).
+Sur l'événement $\mathcal{E}_Y(x,y,s,t)$ les arêtes du chemin espace temps $\gamma$ sont disjointes de $\mathcal{P}_s$, par la proposition \ref{couple}, elles vérifient donc $(i)$ ou $(ii)$ et l'événement $\widetilde{\mathcal{E}}(x,y,s,t)$ est réalisé dans le processus $X$. Nous obtenons
+$$ P(\mathcal{E}_Y(x,y,s,t))\leqslant P\left(\widetilde{\mathcal{E}}(\gamma)\right).
 $$
-Enfin, nous obtenons l'inégalité voulu en combinant les deux inégalités précédentes.
+Enfin, nous obtenons l'inégalité voulue en combinant les deux inégalités précédentes.
 \end{proof}
-Nous remarquons que cette inégalité permet de majorer l'intersection de deux événement par un produit de deux événement comme l'inégalité de BK. Mais la différence avec l'inégalité de BK est que l'un des deux événement à droite de l'inégalité est modifié selon le couplage. 
+Nous remarquons que cette inégalité permet de majorer la probabilité de l'intersection de deux événement par un produit de deux probabilités, comme l'inégalité de BK. Mais la différence avec l'inégalité BK est que l'un des deux événements à droite de l'inégalité est modifié selon le couplage. 
 \section{La vitesse du déplacement}
-Nous présentons le problème central dans cette partie. 
+Nous présentons le résultat central dans cette partie. Nous notons $d$ la distance Euclidienne dans $\mathbb{R}^d$. Nous identifions une arête avec le segment fermé qui relie ses extrémités.
 \begin{thm}\label{vitesse}
-Soient $e\in \mathbb{E}^d$ une arête, $l\in \mathbb{R}$, $t\in \mathbb{N}$ un instant et $\displaystyle 0\leqslant s\leqslant K\frac{l}{\ln l}$ un entier naturel. Soit $d$ la distance euclidienne dans $\mathbb{R}^d$ et nous supposons que $$d(e,\mathcal{P}_t\cup \mathcal{I}_t) \geqslant l.$$ Il existe une constante $c$ indépendant de $l,t,s$ telle que la probabilité pour que $e$ appartienne à $\mathcal{I}_{t+s}\cup \mathcal{P}_{t+s}$ décroît exponentiellement vite avec la distance $l$,i.e. 
-\begin{equation}
-\exists c > 0,\, P_Y(e\in \mathcal{P}_{t+s}\cup \mathcal{I}_{t+s}|d(e,\mathcal{P}_t\cup \mathcal{I}_t) \geqslant l)\leqslant \exp(-cl)
-\end{equation}
+Il existe deux constantes $c,K$ strictement positives telles que, pour toute arête $e$, conditionnellement à l'événement $d(e,\mathcal{P}_t\cup\mathcal{I}_t)\geqslant \ell$, la probabilité pour que $e$ appartienne à $\mathcal{I}_{t+s}\cup \mathcal{P}_{t+s}$ décroît exponentiellement vite avec la distance $\ell$ pour les $s$ entre $0$ et $K\ell / \ln \ell$, i.e,
+\begin{align*}
+&\exists c > 0,\,\exists K > 0,\, \forall t>0,\, \forall \ell> 0,\,\forall s> 0,\, 0< s< \frac{K\ell}{\ln \ell}\\ &P\big(e\in \mathcal{P}_{t+s}\cup \mathcal{I}_{t+s}\,\big|\,d(e,\mathcal{P}_t\cup \mathcal{I}_t\big) \geqslant \ell)\leqslant \exp(-c\ell)
+\end{align*}
 \end{thm}
-Pour montrer ce résultat, nous allons d'abord construire un chemin espace-temps selon la proposition \ref{stc} pour représenter le déplacement de l'interface. Ensuite, pour un chemin $\gamma$ fixé, nous appliquons la proposition \ref{BK'} pour obtenir l'événement $\tilde{\mathcal{E}(\gamma)}$ dans le processus $X$. Enfin, nous estimons la probabilité de $\tilde{\mathcal{E}}(\gamma)$ et nous sommons sur les $\gamma$ possibles. Nous calculons maintenant $P_X(\tilde{\mathcal{E}}(\gamma))$.
+Pour montrer ce résultat, nous allons d'abord choisir deux sommets $x,y$ et construire un chemin espace-temps à l'aide de la proposition \ref{stc} qui est induit par le déplacement de l'interface. Ensuite, pour les deux extrémités fixées, nous appliquons la proposition \ref{BK'}. Enfin, nous estimons la probabilité de $\widetilde{\mathcal{E}}(x,y,s,t)$ et nous sommons sur les $x,y$ possibles. Nous commençons par calculer $P(\widetilde{\mathcal{E}}(x,y,s,t))$. 
 \begin{prop} \label{decexp}
-Soit $\gamma$ un chemin espace-temps de longueur $n$ avec $m$ changements de temps entre $s$ et $t$. Nous supposons qu'il existe une constante $\kappa$ telle que $t-s \leqslant \kappa |\Lambda|$, alors il existe une constante $0\leqslant\hat{p}< 1$ et une constante $c(p)>0$ qui tend vers $+\infty$ quand $p$ tend vers $1$ telles que $$\forall p \geqslant \hat{p}, \quad P_X(\tilde{\mathcal{E}}(\gamma))\leqslant \exp(-c(p)(n-m)).$$
+Soit $\rho$ la projection en espace d'un chemin espace-temps obtenu par la proposition \ref{stc}. Nous supposons qu'il existe une constante $\kappa$ telle que $t-s \leqslant \kappa |\Lambda|$, alors il existe une constante $0\leqslant\widehat{p}< 1$ et une constante $c(p)>0$ qui tend vers $+\infty$ quand $p$ tend vers $1$ telles que $$\forall p \geqslant \widehat{p}, \quad P\left(\forall e\in \rho, \mathrm{Fermeture}(e,]s,t]) \text{ ou }X_s(e) = 0\right)\leqslant \exp(-c(p)|\rho|).$$
 \end{prop}
 \begin{proof}
 Nous fixons d'abord une arête $e\in \Lambda$. Nous calculons la probabilité que $e$ vérifie $(B)$ ou $(C)$.
-\begin{multline*}P_X(e \text{ vérifie }(B) \text{ ou }(C))\leqslant P_X(e \text{ fermé à l'instant } s)\\+P_X(\exists r \in ]s,t], E_r = e, B_r = 0)
+\begin{multline*}P\left( \mathrm{Fermeture}(e,]s,t])\text{ ou }X_s(e) = 0 \right)\leqslant P(X_s(e) = 0)\\+P(\exists r \in ]s,t], E_r = e, B_r = 0)
 \end{multline*}
 Or la loi de la configuration $X_s$ dans $\Lambda$ à l'instant $s$ est la loi de la percolation Bernoulli de paramètre $p$, nous obtenons $$P_X(e \text{ fermée à l'instant } s) = 1-p.$$
-Comme à chaque instant, nous choisissons une arête dans $\Lambda$ uniformément et nous tirons l'état de cette arête selon la loi de Bernoulli de paramètre $p$, nous obtenons la deuxième probabilité
-$$ P_X(\exists r \in ]s,t], E_r = e, B_r = 0) \leqslant \frac{t-s}{|\Lambda|}(1-p)\leqslant \kappa(1-p).
+Comme à chaque instant, nous choisissons indépendamment une arête dans $\Lambda$ uniformément et nous tirons indépendamment l'état de cette arête selon la loi de Bernoulli de paramètre $p$, nous avons pour la deuxième probabilité
+$$ P(\exists r \in ]s,t], E_r = e, B_r = 0) \leqslant \frac{t-s}{|\Lambda|}(1-p)\leqslant \kappa(1-p).
 $$
-Nous obtenons que pour une arête $e$ fixée, $$P_X(e \text{ vérifie }(B) \text{ ou }(C))\leqslant (1+\kappa)(1-p).$$
-Nous considérons maintenant chaque arête de $\gamma$. Elle contient au moins $n-m$ déplacements en espace. Or $(B)$ et $(C)$ sont entièrement déterminés par le processus $X$ et les arêtes ne restent pas fermées entre deux visites, nous obtenons 
-$$P_X(\tilde{\mathcal{E}}(\gamma))\leqslant (1+\kappa)^{n-m}(1-p)^{n-m} = \exp\big(\ln[(1+\kappa)(1-p)](n-m)\big).
-$$ 
+Nous obtenons que pour une arête $e$ fixée, $$P\left( \mathrm{Fermeture}(e,]s,t])\text{ ou }X_s(e) = 0 \right)\leqslant (1+\kappa)(1-p).$$
+Nous considérons maintenant toutes les arêtes de $\rho$. Pour toute arête $e$, l'événement $\mathrm{Fermeture}(e,]s,t])$ est entièrement déterminée par le processus $X$ où les arêtes distinctes sont indépendantes. Par la construction de $\gamma$, s'il existe deux arêtes $e,f$ de $\rho$ telles que $e = f$, alors il existe un instant entre les deux visites où l'arête $e$ est ouverte. Donc $e$ et $f$ sont fermées indépendamment. Nous pouvons donc factoriser $$P(\forall e\in \rho, \mathrm{Fermeture}(e,]s,t])\text{ ou } X_s(e) =0)$$ par le produit des $P(\mathrm{Fermeture}(e,]s,t])\text{ ou } X_s(e) =0)$ et nous obtenons 
+\begin{multline*}P\left(\forall e\in \rho, \mathrm{Fermeture}(e,]s,t])\text{ ou }X_s(e) = 0\right)\leqslant (1+\kappa)^{|\rho|}(1-p)^{|\rho|}\\ = \exp\big(\ln[(1+\kappa)(1-p)](|\rho|)\big).
+\end{multline*}
 Nous posons $c(p) = -\ln[(1+\kappa)(1-p)]$. Or $\ln[(1+\kappa)(1-p)]$ tend vers $-\infty$ quand $p$ tend vers 1. Il existe une constante $\hat{p}<1$ telle que pour tout $p\geqslant \hat{p}$, nous avons $c(p)>0$. Nous obtenons aussi 
 $ \lim_{p\rightarrow 1}c(p) = +\infty
 $.
 \end{proof}
 Nous montrons maintenant le théorème \ref{vitesse}. 
 \begin{proof}
-Nous considérons d'abord le cas $e\in \mathcal{P}_{t+s}$ et est de distance au moins $l$ avec $\mathcal{P}_t$.
-D'après la proposition \ref{stc}, il existe un chemin espace-temps $\rho$ qui relie $e$ à une arête de $\mathcal{P}_t$. Nous notons $\rho= (e_i,t_i)_{1\leqslant i \leqslant N}$ avec $e_1 = e, t_1 = t+s$ et $e_N\in \mathcal{P}_t, t_N = t$. Ce chemin est de projection en espace au moins $l$ car $d(e,\mathcal{P}_t)\geqslant l$. Nous notons $(e_n,t_n)$ la première arête de $\rho$ qui sort de la boule $B(e,l/2)$ de ce chemin, i.e. 
-$$ n = \sup\,\big\{k>1, \forall 1<i<k, e_i\in B(e,l/2) \big\}.
+Nous considérons d'abord le cas où l'arête $e$ est dans $\mathcal{P}_{t+s}$ et est à distance au moins $l$ de $\mathcal{P}_t\cup \mathcal{I}_t$.
+D'après la proposition \ref{stc}, il existe un chemin espace-temps $\gamma$ qui relie $e$ à une arête de $\mathcal{P}_t$. Nous notons $\gamma= (e_i,t_i)_{1\leqslant i \leqslant N}$ avec $e_1 = e, t_1 = t+s$ et $e_N\in \mathcal{P}_t, t_N = t$. Ce chemin est de projection en espace au moins $l$ car $d(e,\mathcal{P}_t)\geqslant l$. Nous notons $(e_n,t_n)$ la première arête de $\gamma$ telle que la longueur de la projection en espace de $(e_1,t_1),\dots,(e_n,t_n)$ dépasse $l/2$, i.e. 
+$$ n = \inf\,\left\lbrace k>1, |\mathrm{Espace}((e_i,t_i)_{1\leqslant i \leqslant n})| \geqslant \frac{l}{2} \right\rbrace.
 $$
-Nous notons $\gamma$ le bout de $\rho$ entre $(e_1,t_1)$ et $(e_n,t_n)$.
+Nous notons $\rho = (e_1,t_1),\dots,(e_n,t_n)$. Nous notons aussi $x$ le sommet de $e_1$ qui n'est pas dans $e_2$ et $y$ le sommet de $e_n$ qui n'est pas dans $e_{n-1}$. Remarquons que nous avons nécessairement $e_{n-1} \neq e_n$ car $n$ est le plus petit indice qui vérifie $|\mathrm{Espace}((e_1,t_1),\dots(e_n,t_n))|\geqslant l/2$. 
 Nous écrivons donc 
-$$ P_Y(e\in \mathcal{P}_{t+s}|d(e,\mathcal{P}_t\cup \mathcal{I}_t)\geqslant l) \leqslant \sum_{\gamma}P_Y( e\overset{\gamma \text{ fermé}}{\longleftrightarrow} \partial B(e,l/2)).
-$$
-Nous fixons d'abord la longueur du chemin $n$ et le nombre de changement de temps $m$. La proposition \ref{couple} et \ref{BK'} nous permet de majorer chaque terme de la somme par $P_X(\tilde{\mathcal{E}}(\gamma))$ et d'après la proposition \ref{decexp} nous avons qu'il existe $\tilde{p}$ indépendant de $\gamma$ et $c(p)$ telles que 
+\begin{multline*} P(e\in \mathcal{P}_{t+s}|d(e,\mathcal{P}_t\cup \mathcal{I}_t)\geqslant l) \\\leqslant \sum_{x,y}P( \exists \rho \text{ chemin espace-temps fermé dans }Y, x\overset{\rho}{\longleftrightarrow} y).
+\end{multline*}
+Nous fixons d'abord la projection en espace du chemin. La proposition \ref{couple} et \ref{BK'} nous permet de majorer chaque terme de la somme par $P_X(\widetilde{\mathcal{E}}(\gamma))$ et d'après la proposition \ref{decexp} nous avons qu'il existe $\widetilde{p}$ indépendant de $\gamma$ et $c(p)$ telles que 
 $$P_Y(e\in \mathcal{P}_{t+s}|d(e,\mathcal{P}_t\cup \mathcal{I}_t)\geqslant l) \leqslant \sum_{n,m}\sum_{|\gamma| = n, m \text{ changements de temps}} \exp(-c(p)(n-m)).
 $$
 Il nous faut maintenant compter le nombre de chemin $\gamma$ de longueur $n$ avec $m$ changements de temps entre $t$ et $t+s$. Or le chemin est monotone, il y a $\displaystyle s \choose m$ choix pour les instants du chemin. Or $\gamma$ est à l'intérieur de $B(e,l/2)$, il y a au plus $l^{md}$ choix pour les arêtes de changement de temps. Le nombre de $\gamma$ est donc majoré par
@@ -218,7 +225,7 @@ Or $m\leqslant s$ et $n\geqslant l/2$, nous obtenons donc une majoration de la p
 \begin{multline*}P(e\in \mathcal{P}_{t+s}|e\notin \mathcal{P}_t\cup \mathcal{I}_t) \leqslant \sum_{n\geqslant l/2}s(sl^d)^s\exp(-c(p)(n-s))\\\leqslant \sum_{n\geqslant l/2} \exp(\ln s+s\ln s+sd\ln l +sc(p)-c(p)n)
 \\ \leqslant \exp(\ln s+s\ln s+sd\ln l +sc(p) -c(p)\frac{l}{3}).
 \end{multline*}
-Or il existe une constante $K$ telle que $\displaystyle s \leqslant K(\frac{l}{\ln l})$, nous pouvons majorer $\ln s+s\ln s+sd\ln l +sc(p)$ par $\displaystyle 3Kl+Kc(p)\frac{l}{\ln l}$. Or $c(p)$ tend vers $+\infty$ quand $p$ tend vers $1$, donc pour $l$ assez grand et $p>\tilde{p}$, nous avons 
+Or il existe une constante $K$ telle que $\displaystyle s \leqslant K(\frac{l}{\ln l})$, nous pouvons majorer $\ln s+s\ln s+sd\ln l +sc(p)$ par $\displaystyle 3Kl+Kc(p)\frac{l}{\ln l}$. Or $c(p)$ tend vers $+\infty$ quand $p$ tend vers $1$, donc pour $l$ assez grand et $p>\widetilde{p}$, nous avons 
 $$P(e\in \mathcal{P}_{t+s}|e\notin \mathcal{P}_t\cup \mathcal{I}_t) \leqslant \exp(-c(p)l).
 $$
 Le cas où $e\in \mathcal{I}_{t+s}$ se déduit facilement du cas $e\in \mathcal{P}_{t+s}$. En effet, pour avoir une interface contenant l'arête $e$ à l'instant $t+s$, il faut que l'arête $e$ devienne pivot avant cette instant. Sinon, elle se comporte identiquement dans les deux processus $X$ et $Y$. Donc nous avons l'inclusion des événements 
