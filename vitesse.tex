@@ -180,14 +180,14 @@ Nous remarquons que cette inégalité permet de majorer la probabilité de l'int
 \section{La vitesse du déplacement}
 Nous présentons le résultat central dans cette partie. Nous notons $d$ la distance Euclidienne dans $\mathbb{R}^d$. Nous identifions une arête avec le segment fermé qui relie ses extrémités.
 \begin{thm}\label{vitesse}
-Il existe deux constantes $c,K$ strictement positives telles que, pour toute arête $e$, conditionnellement à l'événement $d(e,\mathcal{P}_t\cup\mathcal{I}_t)\geqslant \ell$, la probabilité pour que $e$ appartienne à $\mathcal{I}_{t+s}\cup \mathcal{P}_{t+s}$ décroît exponentiellement vite avec la distance $\ell$ pour les $s$ entre $0$ et $K\ell / \ln \ell$, i.e,
+Il existe deux constantes $c,K$ strictement positives telles que, pour toute arête $e$, conditionnellement à l'événement $d(e,\mathcal{P}_t\cup\mathcal{I}_t)\geqslant \ell$, la probabilité pour que $e$ appartienne à $\mathcal{I}_{t+s}\cup \mathcal{P}_{t+s}$ décroît exponentiellement vite avec la distance $\ell$ pour les $s$ entre $0$ et $K\ell$, i.e,
 \begin{align*}
-&\exists c > 0,\,\exists K > 0,\, \forall t>0,\, \forall \ell> 0,\,\forall s> 0,\, 0< s< \frac{K\ell}{\ln \ell}\\ &P\big(e\in \mathcal{P}_{t+s}\cup \mathcal{I}_{t+s}\,\big|\,d(e,\mathcal{P}_t\cup \mathcal{I}_t\big) \geqslant \ell)\leqslant \exp(-c\ell)
+&\exists c > 0,\,\exists K > 0,\, \forall t>0,\, \forall \ell> 0,\,\forall s> 0,\, 0< s< K\ell\\ &P\big(e\in \mathcal{P}_{t+s}\cup \mathcal{I}_{t+s}\,\big|\,d(e,\mathcal{P}_t\cup \mathcal{I}_t\big) \geqslant \ell)\leqslant \exp(-c\ell)
 \end{align*}
 \end{thm}
 Pour montrer ce résultat, nous allons d'abord choisir deux sommets $x,y$ et construire un chemin espace-temps à l'aide de la proposition \ref{stc} qui est induit par le déplacement de l'interface. Ensuite, pour les deux extrémités fixées, nous appliquons la proposition \ref{BK'}. Enfin, nous estimons la probabilité de $\widetilde{\mathcal{E}}(x,y,s,t)$ et nous sommons sur les $x,y$ possibles. Nous commençons par calculer $P(\widetilde{\mathcal{E}}(x,y,s,t))$. 
 \begin{prop} \label{decexp}
-Soit $\rho$ la projection en espace d'un chemin espace-temps obtenu par la proposition \ref{stc}. Nous supposons qu'il existe une constante $\kappa$ telle que $t-s \leqslant \kappa |\Lambda|$, alors il existe une constante $0\leqslant\widehat{p}< 1$ et une constante $c(p)>0$ qui tend vers $+\infty$ quand $p$ tend vers $1$ telles que $$\forall p \geqslant \widehat{p}, \quad P\left(\forall e\in \rho, \mathrm{Fermeture}(e,]s,t]) \text{ ou }X_s(e) = 0\right)\leqslant \exp(-c(p)|\rho|).$$
+Soit $S$ la projection en espace d'un chemin espace-temps obtenu par la proposition \ref{stc}. Nous supposons qu'il existe une constante $\kappa$ telle que $t-s \leqslant \kappa |\Lambda|$, alors il existe une constante $0\leqslant\widehat{p}< 1$ et une constante $c(p)>0$ qui tend vers $+\infty$ quand $p$ tend vers $1$ telles que $$\forall p \geqslant \widehat{p}, \quad P\left(\forall e\in S, \mathrm{Fermeture}(e,]s,t]) \text{ ou }X_s(e) = 0\right)\leqslant \exp(-c(p)|S|).$$
 \end{prop}
 \begin{proof}
 Nous fixons d'abord une arête $e\in \Lambda$. Nous calculons la probabilité que $e$ vérifie $(B)$ ou $(C)$.
@@ -198,8 +198,8 @@ Comme à chaque instant, nous choisissons indépendamment une arête dans $\Lamb
 $$ P(\exists r \in ]s,t], E_r = e, B_r = 0) \leqslant \frac{t-s}{|\Lambda|}(1-p)\leqslant \kappa(1-p).
 $$
 Nous obtenons que pour une arête $e$ fixée, $$P\left( \mathrm{Fermeture}(e,]s,t])\text{ ou }X_s(e) = 0 \right)\leqslant (1+\kappa)(1-p).$$
-Nous considérons maintenant toutes les arêtes de $\rho$. Pour toute arête $e$, l'événement $\mathrm{Fermeture}(e,]s,t])$ est entièrement déterminée par le processus $X$ où les arêtes distinctes sont indépendantes. Par la construction de $\gamma$, s'il existe deux arêtes $e,f$ de $\rho$ telles que $e = f$, alors il existe un instant entre les deux visites où l'arête $e$ est ouverte. Donc $e$ et $f$ sont fermées indépendamment. Nous pouvons donc factoriser $$P(\forall e\in \rho, \mathrm{Fermeture}(e,]s,t])\text{ ou } X_s(e) =0)$$ par le produit des $P(\mathrm{Fermeture}(e,]s,t])\text{ ou } X_s(e) =0)$ et nous obtenons 
-\begin{multline*}P\left(\forall e\in \rho, \mathrm{Fermeture}(e,]s,t])\text{ ou }X_s(e) = 0\right)\leqslant (1+\kappa)^{|\rho|}(1-p)^{|\rho|}\\ = \exp\big(\ln[(1+\kappa)(1-p)](|\rho|)\big).
+Nous considérons maintenant toutes les arêtes de $S$. Pour toute arête $e$, l'événement $\mathrm{Fermeture}(e,]s,t])$ est entièrement déterminée par le processus $X$ où les arêtes distinctes sont indépendantes. Par la construction de $\gamma$, s'il existe deux arêtes $e,f$ de $S$ telles que $e = f$, alors il existe un instant entre les deux visites où l'arête $e$ est ouverte. Donc $e$ et $f$ sont fermées indépendamment. Nous pouvons donc factoriser $$P(\forall e\in S, \mathrm{Fermeture}(e,]s,t])\text{ ou } X_s(e) =0)$$ par le produit des $P(\mathrm{Fermeture}(e,]s,t])\text{ ou } X_s(e) =0)$ et nous obtenons 
+\begin{multline*}P\left(\forall e\in S, \mathrm{Fermeture}(e,]s,t])\text{ ou }X_s(e) = 0\right)\leqslant (1+\kappa)^{|S|}(1-p)^{|S|}\\ = \exp\big(\ln[(1+\kappa)(1-p)](|S|)\big).
 \end{multline*}
 Nous posons $c(p) = -\ln[(1+\kappa)(1-p)]$. Or $\ln[(1+\kappa)(1-p)]$ tend vers $-\infty$ quand $p$ tend vers 1. Il existe une constante $\hat{p}<1$ telle que pour tout $p\geqslant \hat{p}$, nous avons $c(p)>0$. Nous obtenons aussi 
 $ \lim_{p\rightarrow 1}c(p) = +\infty
@@ -207,34 +207,32 @@ $.
 \end{proof}
 Nous montrons maintenant le théorème \ref{vitesse}. 
 \begin{proof}
-Nous considérons d'abord le cas où l'arête $e$ est dans $\mathcal{P}_{t+s}$ et est à distance au moins $l$ de $\mathcal{P}_t\cup \mathcal{I}_t$.
-D'après la proposition \ref{stc}, il existe un chemin espace-temps $\gamma$ qui relie $e$ à une arête de $\mathcal{P}_t$. Nous notons $\gamma= (e_i,t_i)_{1\leqslant i \leqslant N}$ avec $e_1 = e, t_1 = t+s$ et $e_N\in \mathcal{P}_t, t_N = t$. Ce chemin est de projection en espace au moins $l$ car $d(e,\mathcal{P}_t)\geqslant l$. Nous notons $(e_n,t_n)$ la première arête de $\gamma$ telle que la longueur de la projection en espace de $(e_1,t_1),\dots,(e_n,t_n)$ dépasse $l/2$, i.e. 
-$$ n = \inf\,\left\lbrace k>1, |\mathrm{Espace}((e_i,t_i)_{1\leqslant i \leqslant n})| \geqslant \frac{l}{2} \right\rbrace.
+Nous considérons d'abord le cas où l'arête $e$ est dans $\mathcal{P}_{t+s}$ et est à distance au moins $\ell$ de $\mathcal{P}_t\cup \mathcal{I}_t$.
+D'après la proposition \ref{stc}, il existe un chemin espace-temps $\gamma$ qui relie $e$ à une arête de $\mathcal{P}_t$. Nous notons $\gamma= (e_i,t_i)_{1\leqslant i \leqslant N}$ avec $e_1 = e, t_1 = t+s$ et $e_N\in \mathcal{P}_t, t_N = t$. Ce chemin est de projection en espace au moins $l$ car $d(e,\mathcal{P}_t)\geqslant \ell$. Nous notons $(e_n,t_n)$ la première arête de $\gamma$ telle que la longueur de la projection en espace de $(e_1,t_1),\dots,(e_n,t_n)$ dépasse $\ell/2$, i.e. 
+$$ n = \inf\,\left\lbrace k>1, |\mathrm{Espace}((e_i,t_i)_{1\leqslant i \leqslant k})| \geqslant \frac{\ell}{2} \right\rbrace.
 $$
-Nous notons $\rho = (e_1,t_1),\dots,(e_n,t_n)$. Nous notons aussi $x$ le sommet de $e_1$ qui n'est pas dans $e_2$ et $y$ le sommet de $e_n$ qui n'est pas dans $e_{n-1}$. Remarquons que nous avons nécessairement $e_{n-1} \neq e_n$ car $n$ est le plus petit indice qui vérifie $|\mathrm{Espace}((e_1,t_1),\dots(e_n,t_n))|\geqslant l/2$. 
+Nous notons $\rho = (e_1,t_1),\dots,(e_n,t_n)$. Nous notons aussi $x$ le sommet de $e_1$ qui n'est pas dans $e_2$ et $y$ le sommet de $e_n$ qui n'est pas dans $e_{n-1}$. Remarquons que nous avons nécessairement $e_{n-1} \neq e_n$ car $n$ est le plus petit indice qui vérifie $|\mathrm{Espace}((e_1,t_1),\dots(e_n,t_n))|\geqslant \ell/2$. 
 Nous écrivons donc 
-\begin{multline*} P(e\in \mathcal{P}_{t+s}|d(e,\mathcal{P}_t\cup \mathcal{I}_t)\geqslant l) \\\leqslant \sum_{x,y}P( \exists \rho \text{ chemin espace-temps fermé dans }Y, x\overset{\rho}{\longleftrightarrow} y).
+\begin{multline*} P(e\in \mathcal{P}_{t+s}|d(e,\mathcal{P}_t\cup \mathcal{I}_t)\geqslant \ell) \\\leqslant \sum_x\sum_{y\in B(x,\ell/2)}P( \exists \rho \text{ chemin espace-temps fermé dans }Y, x\overset{\rho}{\longleftrightarrow} y).
 \end{multline*}
-Nous fixons d'abord la projection en espace du chemin. La proposition \ref{couple} et \ref{BK'} nous permet de majorer chaque terme de la somme par $P_X(\widetilde{\mathcal{E}}(\gamma))$ et d'après la proposition \ref{decexp} nous avons qu'il existe $\widetilde{p}$ indépendant de $\gamma$ et $c(p)$ telles que 
-$$P_Y(e\in \mathcal{P}_{t+s}|d(e,\mathcal{P}_t\cup \mathcal{I}_t)\geqslant l) \leqslant \sum_{n,m}\sum_{|\gamma| = n, m \text{ changements de temps}} \exp(-c(p)(n-m)).
+Nous fixons d'abord $S$ la projection en espace du chemin. La proposition \ref{couple} et \ref{BK'} nous permet de majorer chaque terme de la somme par $P(\widetilde{\mathcal{E}}(x,y,t,t+s))$ et d'après la proposition \ref{decexp} nous avons qu'il existe $\widetilde{p}$ indépendant de $\gamma$ et $c(p)$ telles que 
+$$P(e\in \mathcal{P}_{t+s}|d(e,\mathcal{P}_t\cup \mathcal{I}_t)\geqslant \ell) \leqslant \sum_x\sum_{y\in B(x,\ell/2)}\sum_{S \subset B(x,\ell)} \exp(-c(p)|S|).
 $$
-Il nous faut maintenant compter le nombre de chemin $\gamma$ de longueur $n$ avec $m$ changements de temps entre $t$ et $t+s$. Or le chemin est monotone, il y a $\displaystyle s \choose m$ choix pour les instants du chemin. Or $\gamma$ est à l'intérieur de $B(e,l/2)$, il y a au plus $l^{md}$ choix pour les arêtes de changement de temps. Le nombre de $\gamma$ est donc majoré par
-$$ {s\choose m} l^{md} (2d-1)^{n-m}\leqslant (sl^d)^m(2d-1)^{n-m}.
+Il nous faut maintenant compter le nombre de projections $S$ de longueur $\ell/2$ dans la boule de rayon $\ell$. En effet, nous pouvons le majorer par $(2d-1)^{|S|}$. Quitte à choisir $p$ assez proche de $1$, nous avons $c(p)> 2d-1$ et nous obtenons la majoration avec une nouvelle constante $c'(p) >0$,
+$$P(e\in \mathcal{P}_{t+s}|d(e,\mathcal{P}_t\cup \mathcal{I}_t)\geqslant \ell) \leqslant \sum_x\sum_{y\in B(x,\ell/2)} \exp(-c'(p)|S|).
 $$
-Or $m\leqslant s$ et $n\geqslant l/2$, nous obtenons donc une majoration de la probabilité suivante
-\begin{multline*}P(e\in \mathcal{P}_{t+s}|e\notin \mathcal{P}_t\cup \mathcal{I}_t) \leqslant \sum_{n\geqslant l/2}s(sl^d)^s\exp(-c(p)(n-s))\\\leqslant \sum_{n\geqslant l/2} \exp(\ln s+s\ln s+sd\ln l +sc(p)-c(p)n)
-\\ \leqslant \exp(\ln s+s\ln s+sd\ln l +sc(p) -c(p)\frac{l}{3}).
-\end{multline*}
-Or il existe une constante $K$ telle que $\displaystyle s \leqslant K(\frac{l}{\ln l})$, nous pouvons majorer $\ln s+s\ln s+sd\ln l +sc(p)$ par $\displaystyle 3Kl+Kc(p)\frac{l}{\ln l}$. Or $c(p)$ tend vers $+\infty$ quand $p$ tend vers $1$, donc pour $l$ assez grand et $p>\widetilde{p}$, nous avons 
-$$P(e\in \mathcal{P}_{t+s}|e\notin \mathcal{P}_t\cup \mathcal{I}_t) \leqslant \exp(-c(p)l).
+Nous remarquons que $|S| = \ell/2$ et nous majorons enfin le nombre de sommet $y$ par $C(d)\ell^d$ avec $C(d)$ une constante dépend uniquement de la dimension et nous avons 
+$$P(e\in \mathcal{P}_{t+s}|e\notin \mathcal{P}_t\cup \mathcal{I}_t) \leqslant 2C(d)\ell^d \exp(-c'(p)\frac{\ell}{2})\leqslant \exp(-c\ell)
 $$
+où $c$ est une constante strictement positive qui ne dépend que de $p$ et $d$ et qui tend vers $+\infty$ quand $p$ tend vers $1$.
+
 Le cas où $e\in \mathcal{I}_{t+s}$ se déduit facilement du cas $e\in \mathcal{P}_{t+s}$. En effet, pour avoir une interface contenant l'arête $e$ à l'instant $t+s$, il faut que l'arête $e$ devienne pivot avant cette instant. Sinon, elle se comporte identiquement dans les deux processus $X$ et $Y$. Donc nous avons l'inclusion des événements 
-$$ \big\{ e\in \mathcal{I}_{t+s}, d(e,\mathcal{I}_t \cup \mathcal{P}_{t}\big) \geqslant l\} \subset \bigcup_{0<r<s}\big\{ e\in \mathcal{P}_{t+r}, d(e,\mathcal{I}_t \cup \mathcal{P}_{t}\big) \geqslant l\}.
+$$ \big\{ e\in \mathcal{I}_{t+s}, d(e,\mathcal{I}_t \cup \mathcal{P}_{t}\big) \geqslant \ell\} \subset \bigcup_{0<r<s}\big\{ e\in \mathcal{P}_{t+r}, d(e,\mathcal{I}_t \cup \mathcal{P}_{t}\big) \geqslant \ell\}.
 $$
-Or $s$ est majoré par $\displaystyle K\frac{l}{\ln l}$, nous avons la majoration de la probabilité
-\begin{multline*} P(e\in \mathcal{I}_{t+s}, d(e,\mathcal{I}_t \cup \mathcal{P}_{t}\big) \geqslant l) \leqslant \sum_{0<r<s} P(e\in \mathcal{P}_{t+r}, d(e,\mathcal{I}_t \cup \mathcal{P}_{t})\geqslant l) \\ \leqslant K\frac{l}{\ln l}\exp(-c(p)l)\leqslant \exp(-c'(p)l)
+Or $s$ est majoré par $K\ell$, nous avons la majoration de la probabilité
+\begin{multline*} P(e\in \mathcal{I}_{t+s}, d(e,\mathcal{I}_t \cup \mathcal{P}_{t}\big) \geqslant \ell) \leqslant \sum_{0<r<s} P(e\in \mathcal{P}_{t+r}, d(e,\mathcal{I}_t \cup \mathcal{P}_{t})\geqslant \ell) \\ \leqslant K\ell\exp(-c\ell)\leqslant \exp(-c'\ell)
 \end{multline*}
-pour une autre constante $c'(p)$. 
+pour une autre constante $c'$ strictement positive et qui tend vers $+\infty$ quand $p$ tend vers $1$. 
 \end{proof}
 
 \end{document}
